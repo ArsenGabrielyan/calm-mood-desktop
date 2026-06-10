@@ -7,6 +7,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - Theme Changer
 - Splash Screen
+- I18N Support
+- Breathing exercise page
 ### Improved
 - Window Wrapper - Added more buttons with similar design
 

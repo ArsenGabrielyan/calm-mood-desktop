@@ -5,8 +5,40 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "kamar";
+  src: url("/fonts/kamar.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "arArchy";
+  src: url("/fonts/ar-archy/thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "arArchy";
+  src: url("/fonts/ar-archy/extralight.ttf");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "arArchy";
+  src: url("/fonts/ar-archy/regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-heading: "kamar", "Raleway", "arArchy", "Noto Sans";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -128,7 +160,15 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+  --font-heading: var(--font-heading);
+
   --animate-calm-pulse: calmPulse 3s ease-in-out infinite;
+  --animate-grow-circle: growCircle ease-in-out forwards;
+  --animate-shrink-circle: shrinkCircle ease-in-out forwards;
+  --animate-hold-circle: pulseGlow ease-in-out infinite;
 
   @keyframes calmPulse {
     0% {
@@ -143,6 +183,25 @@
       transform: scale(0.9);
       opacity: 0.6;
     }
+  }
+  @keyframes growCircleNoGlow {
+    0% { transform: scale(0.25);}
+    100% { transform: scale(1);}
+  }
+  @keyframes growCircle {
+    0% { transform: scale(0.25); box-shadow: 0 0 0 0 transparent;}
+    40% { box-shadow: 0 0 30px 10px var(--color-primary); }
+    70% { box-shadow: 0 0 8px 0 var(--color-primary); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 transparent;}
+  }
+  @keyframes shrinkCircle {
+    0% {transform: scale(1);}
+    100% {transform: scale(0.25);}
+  }
+  @keyframes pulseGlow{
+    0% { box-shadow: 0 0 0 0 transparent; }
+    50% { box-shadow: 0 0 30px 10px var(--color-secondary); }
+    100% { box-shadow: 0 0 0 0 transparent; }
   }
 }
 

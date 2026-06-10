@@ -1,0 +1,24 @@
+{
+  "appName": "Հանգիստ Տրամադրություն",
+  "author": "Արսեն Գ.",
+  "langSwitcherLabel": "Փոխել լեզուն",
+  "logo": {
+    "original": "/images/logos/logo.webp",
+    "green": "/images/logos/logo-green.webp",
+    "lime": "/images/logos/logo-lime.webp"
+  },
+  "allRightsReserved": "Բոլոր իրավունքները պաշտպանված են",
+  "github-link": "Դիտել GitHub-ում",
+  "buttons": {
+    "sounds": "Հանգստացնող ձայներ",
+    "exercise": "Շնչառական վարժություն",
+    "pomodoro": "Պոմոդորո",
+    "settings": "Կարգավորումներ",
+    "apply": "Հաստատել",
+    "cancel": "Չեղարկել"
+  },
+  "backButton": "Վերադառնալ",
+  "learnMore": "Մանրամասն",
+  "theme": "Փոխել ոճը",
+  "please-wait": "Խնդրում ենք սպասել..."
+}

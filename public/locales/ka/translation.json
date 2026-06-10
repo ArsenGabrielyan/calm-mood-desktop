@@ -1,0 +1,24 @@
+{
+  "appName": "მშვიდი განწყობა",
+  "author": "არსენ გ.",
+  "langSwitcherLabel": "ენის შეცვლა",
+  "logo": {
+    "original": "/images/logos/ge/logo.webp",
+    "green": "/images/logos/ge/logo-green.webp",
+    "lime": "/images/logos/ge/logo-lime.webp"
+  },
+  "allRightsReserved": "ყველა უფლება დაცულია",
+  "github-link": "ნახვა GitHub-ზე",
+  "buttons": {
+    "sounds": "დამამშვიდებელი ხმები",
+    "exercise": "სუნთქვითი ვარჯიში",
+    "pomodoro": "პომოდორო",
+    "settings": "პარამეტრები",
+    "apply": "გამოყენება",
+    "cancel": "გაუქმება"
+  },
+  "backButton": "უკან",
+  "learnMore": "გაიგეთ მეტი",
+  "theme": "სტილის შეცვლა",
+  "please-wait": "გთხოვთ, დაელოდოთ..."
+}

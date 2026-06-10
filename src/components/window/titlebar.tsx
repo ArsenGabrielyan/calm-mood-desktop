@@ -5,6 +5,7 @@ import { Copy, Minus, Square, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { useState, useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 interface TitleBarProps{
      title?: string,
@@ -32,14 +33,15 @@ export default function TitleBar({title}: TitleBarProps){
                if (unlisten) unlisten();
           };
      }, [appWindow])
+     const {t} = useTranslation()
      return (
           <div className="flex items-center justify-between gap-2 bg-linear-to-b from-secondary to-transparent text-foreground pl-2 fixed top-0 left-0 z-30 w-full h-10 backdrop-blur-xs">
                <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                         <img src="/app-icon.png" alt="Հանգիստ Տրամադրություն" width={30} height={30} className="select-none rounded-xs cursor-pointer"/> 
+                         <img src="/app-icon.png" alt={t("appName")} width={30} height={30} className="select-none rounded-xs cursor-pointer"/> 
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-full min-w-32 bg-popover/60 backdrop-blur-sm border-0 shadow-xs">
-                         <DropdownMenuLabel>Հանգիստ Տրամադրություն</DropdownMenuLabel>
+                         <DropdownMenuLabel>{t("appName")}</DropdownMenuLabel>
                          <DropdownMenuSeparator/>
                          <DropdownMenuItem>
                               <Info className="text-muted-foreground opacity-70"/>

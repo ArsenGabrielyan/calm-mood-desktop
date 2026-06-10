@@ -1,0 +1,21 @@
+{
+     "title": "Relaxing Sounds",
+     "description": "Relax with the sounds of nature: forest, sea, etc. Suitable for focusing, sleeping, or just peace.",
+     "play": "Play",
+     "pause": "Pause",
+     "stop": "Stop",
+     "resume": "Resume",
+     "errorPlaying": "Unable to play audio",
+     "sounds": {
+          "birds": "Birds",
+          "rain": "Rain",
+          "river": "River",
+          "beach": "Beach",
+          "train": "Train",
+          "thunderstorm": "Thunderstorm",
+          "night": "Night",
+          "lake": "Lake",
+          "waves": "Waves",
+          "waterfall": "Waterfall"
+     }
+}

@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router";
 import { ModeToggle } from "../mode-toggler";
 import { Suspense } from "react";
 import TitlebarLoader from "@/loaders/titlebar";
+import { useTranslation } from "react-i18next";
 
 interface WindowWrapperProps{
      children: React.ReactNode,
@@ -17,6 +18,7 @@ export default function WindowWrapper({
      title,
      className
 }: WindowWrapperProps){
+     const {t} = useTranslation()
      const location = useLocation()
      return (
           <main className="w-full h-full relative">
@@ -36,7 +38,7 @@ export default function WindowWrapper({
                          <Button
                               className="shadow-xs text-primary rounded-l-4xl"
                               variant={location.pathname==="/" ? "secondary" : "ghost"} 
-                              size="icon" title="Շնչառական վարժություն" asChild
+                              size="icon" title={t("buttons.exercise")} asChild
                          >
                               <Link to="/">
                                    <Wind className="size-5"/>
@@ -45,7 +47,7 @@ export default function WindowWrapper({
                          <Button
                               className="shadow-xs hover:text-primary rounded-none"
                               variant={location.pathname==="/sounds" ? "secondary" : "ghost"}
-                              size="icon" title="Հանգստացնող ձայններ" asChild
+                              size="icon" title={t("buttons.sounds")} asChild
                          >
                               <Link to="/sounds">
                                    <Waves className="size-5"/>
@@ -54,7 +56,7 @@ export default function WindowWrapper({
                          <Button
                               className="shadow-xs hover:text-primary rounded-r-4xl"
                               variant={location.pathname==="/pomodoro" ? "secondary" : "ghost"}
-                              size="icon" title="Պոմոդորո" asChild
+                              size="icon" title={t("buttons.pomodoro")} asChild
                          >
                               <Link to="/pomodoro">
                                    <Timer className="size-5"/>
@@ -65,7 +67,7 @@ export default function WindowWrapper({
                          <Button 
                               className="shadow-xs text-primary rounded-l-4xl"
                               variant="ghost"
-                              size="icon" title="Կարգավորումներ"
+                              size="icon" title={t("buttons.settings")}
                          >
                               <Cog className="size-5"/>
                          </Button>

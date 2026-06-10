@@ -1,4 +1,5 @@
 import Logo from "@/components/logo"
+import { useTranslation } from "react-i18next"
 
 export default function SplashScreen(){
      const backgroundImage: React.CSSProperties = {
@@ -8,6 +9,7 @@ export default function SplashScreen(){
           backgroundSize: "cover",
           backgroundAttachment: "fixed",
      }
+     const {t} = useTranslation()
      return (
           <main className="relative w-full min-h-dvh flex justify-center items-center flex-col gap-2.5" style={backgroundImage}>
                <div className="absolute inset-0 bg-linear-to-b from-background/50 to-background/70 -z-00"/>
@@ -15,7 +17,7 @@ export default function SplashScreen(){
                     <Logo width={480} height={163}/>
                     <div className="flex items-center gap-1.5 text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">
                          <div className="bg-primary/70 size-8 rounded-full animate-calm-pulse" />
-                         Խնդրում ենք սպասել․․․
+                         {t("please-wait")}
                     </div>
                </div>
           </main>

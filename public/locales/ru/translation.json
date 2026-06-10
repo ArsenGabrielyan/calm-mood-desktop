@@ -1,0 +1,24 @@
+{
+  "appName": "Спокойное Настроение",
+  "author": "Арсен Г.",
+  "langSwitcherLabel": "Изменить язык",
+  "logo": {
+    "original": "/images/logos/ru/logo.webp",
+    "green": "/images/logos/ru/logo-green.webp",
+    "lime": "/images/logos/ru/logo-lime.webp"
+  },
+  "allRightsReserved": "Все права защищены",
+  "github-link": "Посмотреть на GitHub",
+  "buttons": {
+    "sounds": "Расслабляющие звуки",
+    "exercise": "Дыхательные упражнения",
+    "pomodoro": "Помодоро",
+    "settings": "Настройки",
+    "apply": "Применять",
+    "cancel": "Отменить"
+  },
+  "backButton": "Назад",
+  "learnMore": "Подробнее",
+  "theme": "Изменить режим",
+  "please-wait": "Пожалуйста, подождите..."
+}

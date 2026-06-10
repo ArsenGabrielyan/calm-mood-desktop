@@ -1,0 +1,24 @@
+{
+  "appName": "Calm Mood",
+  "author": "Arsen G.",
+  "langSwitcherLabel": "Change language",
+  "logo": {
+    "original": "/images/logos/en/logo.webp",
+    "green": "/images/logos/en/logo-green.webp",
+    "lime": "/images/logos/en/logo-lime.webp"
+  },
+  "allRightsReserved": "All Rights Reserved",
+  "github-link": "View on GitHub",
+  "buttons": {
+    "sounds": "Relaxing Sounds",
+    "exercise": "Breathing Exercise",
+    "pomodoro": "Pomodoro",
+    "settings": "Settings",
+    "apply": "Apply",
+    "cancel": "Cancel"
+  },
+  "backButton": "Back",
+  "learnMore": "Learn More",
+  "theme": "Change Theme",
+  "please-wait": "Please wait..."
+}
