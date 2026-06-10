@@ -87,42 +87,42 @@ jobs:
 
             ## Downloads
             ### :penguin: Linux
-            - **rpm** - [Calm.Mood.Desktop-__VERSION__-1.x86_64.rpm][linux-amd-rpm]
-            - **AppImage** - [Calm.Mood.Desktop___VERSION___amd64.AppImage][linux-amd-appimage]
-            - **deb** - [Calm.Mood.Desktop___VERSION___amd64.deb][linux-amd-deb]
+            - **rpm** - [Calm Mood Desktop-__VERSION__-1.x86_64.rpm][linux-amd-rpm]
+            - **AppImage** - [Calm Mood Desktop___VERSION___amd64.AppImage][linux-amd-appimage]
+            - **deb** - [Calm Mood Desktop___VERSION___amd64.deb][linux-amd-deb]
 
             ### :penguin: Linux (ARM64)
-            - **rpm** - [Calm.Mood.Desktop-__VERSION__-1.aarch64.rpm][linux-arm-rpm]
-            - **AppImage** - [Calm.Mood.Desktop___VERSION___aarch64.AppImage][linux-arm-appimage]
-            - **deb** - [Calm.Mood.Desktop___VERSION___arm64.deb][linux-arm-deb]
+            - **rpm** - [Calm Mood Desktop-__VERSION__-1.aarch64.rpm][linux-arm-rpm]
+            - **AppImage** - [Calm Mood Desktop___VERSION___aarch64.AppImage][linux-arm-appimage]
+            - **deb** - [Calm Mood Desktop___VERSION___arm64.deb][linux-arm-deb]
 
             ### :window: Windows
-            - **exe** - [Calm.Mood.Desktop___VERSION___x64-setup.exe][windows-exe]
-            - **msi** - [Calm.Mood.Desktop___VERSION___x64_en-US.msi][windows-msi]
+            - **exe** - [Calm Mood Desktop___VERSION___x64-setup.exe][windows-exe]
+            - **msi** - [Calm Mood Desktop___VERSION___x64_en-US.msi][windows-msi]
 
             ### :apple: macOS
-            - **dmg** - [Calm.Mood.Desktop___VERSION___x64.dmg][mac-x64-dmg]
-            - **app.tar.gz** - [Calm.Mood.Desktop_x64.app.tar.gz][mac-x64-tar]
+            - **dmg** - [Calm Mood Desktop___VERSION___x64.dmg][mac-x64-dmg]
+            - **app.tar.gz** - [Calm Mood Desktop_x64.app.tar.gz][mac-x64-tar]
 
             ### :green_apple: macOS (ARM64)
-            - **dmg** - [Calm.Mood.Desktop___VERSION___aarch64.dmg][mac-arm64-dmg]
-            - **app.tar.gz** - [Calm.Mood.Desktop_aarch64.app.tar.gz][mac-arm64-tar]
+            - **dmg** - [Calm Mood Desktop___VERSION___aarch64.dmg][mac-arm64-dmg]
+            - **app.tar.gz** - [Calm Mood Desktop_aarch64.app.tar.gz][mac-arm64-tar]
 
-            [mac-arm64-dmg]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___aarch64.dmg
-            [mac-x64-dmg]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___x64.dmg
-            [mac-arm64-tar]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop_aarch64.app.tar.gz
-            [mac-x64-tar]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop_x64.app.tar.gz
+            [mac-arm64-dmg]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___aarch64.dmg
+            [mac-x64-dmg]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___x64.dmg
+            [mac-arm64-tar]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop_aarch64.app.tar.gz
+            [mac-x64-tar]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop_x64.app.tar.gz
 
-            [windows-exe]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___x64-setup.exe
-            [windows-msi]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___x64_en-US.msi
+            [windows-exe]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___x64-setup.exe
+            [windows-msi]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___x64_en-US.msi
 
-            [linux-amd-rpm]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop-__VERSION__-1.x86_64.rpm
-            [linux-amd-appimage]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___amd64.AppImage
-            [linux-amd-deb]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___amd64.deb
+            [linux-amd-rpm]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop-__VERSION__-1.x86_64.rpm
+            [linux-amd-appimage]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___amd64.AppImage
+            [linux-amd-deb]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___amd64.deb
 
-            [linux-arm-rpm]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop-__VERSION__-1.aarch64.rpm
-            [linux-arm-appimage]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___aarch64.AppImage
-            [linux-arm-deb]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm.Mood.Desktop___VERSION___arm64.deb
+            [linux-arm-rpm]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop-__VERSION__-1.aarch64.rpm
+            [linux-arm-appimage]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___aarch64.AppImage
+            [linux-arm-deb]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/download/v__VERSION__/Calm Mood Desktop___VERSION___arm64.deb
 
       - name: Test Build (PR / workflow_dispatch)
         uses: tauri-apps/tauri-action@v0

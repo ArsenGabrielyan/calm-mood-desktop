@@ -7,6 +7,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 > [!IMPORTANT]
 > The first pre-release is mostly focused on the wrapper design meaning that it won't work or some parts might work
 ### Initialized
-- A Window Wrapper that defines the UI of 
+- A Window Wrapper that defines the UI of the Window wrapper
+### Added
+- **NSIS Installer Assets**
+  - Sidebar Image
+  - Header Image
+  - Installer Icon
 
 [0.1.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.1.0
