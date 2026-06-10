@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Calm Mood",
+  "productName": "Calm Mood Desktop",
   "version": "0.1.0",
   "identifier": "com.arsen.calm-mood",
   "build": {
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Calm Mood",
+        "title": "Calm Mood Desktop",
         "width": 800,
         "height": 600,
         "decorations": false
