@@ -18,9 +18,9 @@ export default function WindowWrapper({
                <TitleBar
                     title={title || "Հանգիստ Տրամադրություն"}
                />
-               <main className="relative w-full min-h-dvh flex justify-center items-center flex-col gap-2.5 pt-[95px]" style={getDailyBackground()}>
+               <main className="relative w-full min-h-dvh flex justify-center items-center flex-col gap-2.5" style={getDailyBackground()}>
                     <div className="absolute inset-0 bg-linear-to-b from-background/50 to-background/65 -z-00"/>
-                    <div className={cn("relative top-1/2 left-1/2 -translate-1/2 z-10 text-foreground p-8 w-full md:w-fit flex justify-center items-center flex-col", className)}>
+                    <div className={cn("relative z-10 text-foreground p-4 w-full md:w-fit flex justify-center items-center flex-col", className)}>
                          {children}
                     </div>
                </main>
