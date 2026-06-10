@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useTheme } from "./theme-provider";
+import { useTheme } from "../context/theme-provider";
 
 interface Props{
      width: number,

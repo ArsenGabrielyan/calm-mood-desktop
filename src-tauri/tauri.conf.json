@@ -15,7 +15,8 @@
         "title": "Calm Mood Desktop",
         "width": 800,
         "height": 600,
-        "decorations": false
+        "decorations": false,
+        "url": "index.html"
       }
     ],
     "security": {
@@ -23,6 +24,9 @@
     }
   },
   "bundle": {
+    "resources": {
+      "assets/sounds/*": "sounds/"
+    },
     "publisher": "Arsen G.",
     "active": true,
     "targets": "all",

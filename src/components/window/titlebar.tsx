@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../theme-provider";
+import { useTheme } from "../../context/theme-provider";
 
 interface TitleBarProps{
      title?: string,
