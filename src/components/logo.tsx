@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTheme } from "../context/theme-provider";
+import { useTranslation } from "react-i18next";
 
 interface Props{
      width: number,
@@ -7,8 +8,9 @@ interface Props{
 }
 export default function Logo({width, height}: Props){
      const {theme} = useTheme()
+     const {t} = useTranslation()
      const logoImage = useMemo(() => {
-          return theme === "light" ? "/logos/logo-green.webp" : "/logos/logo-lime.webp";
+          return theme === "light" ? t("logo.green") : t("logo.lime");
      }, [theme]);
      return (
           <img

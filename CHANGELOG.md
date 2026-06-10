@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Splash Screen
 - I18N Support
 - Breathing exercise page
+- Soothing Sounds Page
 ### Improved
 - Window Wrapper - Added more buttons with similar design
 

@@ -3,9 +3,9 @@
   "author": "Արսեն Գ.",
   "langSwitcherLabel": "Փոխել լեզուն",
   "logo": {
-    "original": "/images/logos/logo.webp",
-    "green": "/images/logos/logo-green.webp",
-    "lime": "/images/logos/logo-lime.webp"
+    "original": "/logos/logo.webp",
+    "green": "/logos/logo-green.webp",
+    "lime": "/logos/logo-lime.webp"
   },
   "allRightsReserved": "Բոլոր իրավունքները պաշտպանված են",
   "github-link": "Դիտել GitHub-ում",

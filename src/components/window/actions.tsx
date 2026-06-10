@@ -5,6 +5,7 @@ import { ModeToggle } from "../mode-toggler";
 import { useTranslation } from "react-i18next";
 import { useSound } from "@/context/sounds";
 import { useMemo } from "react";
+import { cn } from "@/lib/utils";
 
 export default function ActionButtons(){
      const {t} = useTranslation()
@@ -16,7 +17,7 @@ export default function ActionButtons(){
           <div className="fixed bottom-0 left-0 w-full flex justify-between items-center gap-2 p-4 bg-linear-to-b from-transparent to-secondary backdrop-blur-xs z-20">
                <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl">
                     <Button
-                         className="shadow-xs text-primary rounded-l-4xl"
+                         className={cn("shadow-xs rounded-l-4xl", location.pathname==="/" ? "text-primary" : "hover:text-primary")}
                          variant={location.pathname==="/" ? "secondary" : "ghost"} 
                          size="icon" title={t("buttons.exercise")} asChild
                     >
@@ -25,7 +26,7 @@ export default function ActionButtons(){
                          </Link>
                     </Button>
                     <Button
-                         className="shadow-xs hover:text-primary rounded-none"
+                         className={cn("shadow-xs rounded-none", location.pathname==="/sounds" ? "text-primary" : "hover:text-primary")}
                          variant={location.pathname==="/sounds" ? "secondary" : "ghost"}
                          size="icon" title={t("buttons.sounds")} asChild
                     >
@@ -34,7 +35,7 @@ export default function ActionButtons(){
                          </Link>
                     </Button>
                     <Button
-                         className="shadow-xs hover:text-primary rounded-r-4xl"
+                         className={cn("shadow-xs rounded-r-4xl", location.pathname==="/pomodoro" ? "text-primary" : "hover:text-primary")}
                          variant={location.pathname==="/pomodoro" ? "secondary" : "ghost"}
                          size="icon" title={t("buttons.pomodoro")} asChild
                     >
