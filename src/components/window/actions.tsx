@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useSound } from "@/context/sounds";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
+import LanguageSwitcher from "@/i18n/languages";
 
 export default function ActionButtons(){
      const {t} = useTranslation()
@@ -63,6 +64,7 @@ export default function ActionButtons(){
                          <Cog className="size-5"/>
                     </Button>
                     <ModeToggle/>
+                    <LanguageSwitcher/>
                </div>
           </div>
      )

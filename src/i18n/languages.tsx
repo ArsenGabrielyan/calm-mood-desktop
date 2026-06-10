@@ -29,7 +29,7 @@ function LangSwitcherSelect({children,defaultValue, open, onOpenChange, disabled
           <DropdownMenu open={open} onOpenChange={onOpenChange}>
                {lang && (
                     <DropdownMenuTrigger disabled={disabled} className={cn("font-sans! select-none",disabled && "pointer-events-none opacity-50")} asChild>
-                         <Button variant="outline" title={label}>
+                         <Button className="shadow-xs text-primary rounded-r-4xl" variant="ghost" title={label}>
                               <CircleFlag countryCode={lang.countryCode} className="size-4" title={lang.language}/>
                               <ChevronDown className={cn(open && "rotate-180","transition-all")}/>
                          </Button>

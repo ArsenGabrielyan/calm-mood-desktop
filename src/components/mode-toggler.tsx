@@ -8,7 +8,7 @@ export function ModeToggle() {
   const {t} = useTranslation()
   return (
     <Button
-      className="shadow-xs text-primary rounded-r-4xl"
+      className="shadow-xs text-primary rounded-none"
       variant="ghost"
       size="icon" title={t("theme")}
       onClick={()=>setTheme(resolvedTheme==="dark" ? "light" : "dark")}
