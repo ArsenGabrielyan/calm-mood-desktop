@@ -2,6 +2,10 @@ import { cn, getDailyBackground } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Cog, Timer, Waves, Wind } from "lucide-react";
 import TitleBar from "./titlebar";
+import { Link, useLocation } from "react-router";
+import { ModeToggle } from "../mode-toggler";
+import { Suspense } from "react";
+import TitlebarLoader from "@/loaders/titlebar";
 
 interface WindowWrapperProps{
      children: React.ReactNode,
@@ -13,11 +17,14 @@ export default function WindowWrapper({
      title,
      className
 }: WindowWrapperProps){
+     const location = useLocation()
      return (
           <main className="w-full h-full relative">
-               <TitleBar
-                    title={title || "Հանգիստ Տրամադրություն"}
-               />
+               <Suspense fallback={<TitlebarLoader/>}>
+                    <TitleBar
+                         title={title}
+                    />
+               </Suspense>
                <main className="relative w-full min-h-dvh flex justify-center items-center flex-col gap-2.5" style={getDailyBackground()}>
                     <div className="absolute inset-0 bg-linear-to-b from-background/50 to-background/65 -z-00"/>
                     <div className={cn("relative z-10 text-foreground p-4 w-full md:w-fit flex justify-center items-center flex-col", className)}>
@@ -26,19 +33,44 @@ export default function WindowWrapper({
                </main>
                <div className="fixed bottom-0 left-0 w-full flex justify-between items-center gap-2 p-4 bg-linear-to-b from-transparent to-secondary backdrop-blur-xs">
                     <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl">
-                         <Button className="shadow-xs text-primary rounded-l-4xl" variant="secondary" size="icon-lg" title="Շնչառական վարժություն">
-                              <Wind className="size-5"/>
+                         <Button
+                              className="shadow-xs text-primary rounded-l-4xl"
+                              variant={location.pathname==="/" ? "secondary" : "ghost"} 
+                              size="icon" title="Շնչառական վարժություն" asChild
+                         >
+                              <Link to="/">
+                                   <Wind className="size-5"/>
+                              </Link>
                          </Button>
-                         <Button className="shadow-xs hover:text-primary rounded-none" variant="ghost" size="icon-lg" title="Հանգստացնող ձայններ">
-                              <Waves className="size-5"/>
+                         <Button
+                              className="shadow-xs hover:text-primary rounded-none"
+                              variant={location.pathname==="/sounds" ? "secondary" : "ghost"}
+                              size="icon" title="Հանգստացնող ձայններ" asChild
+                         >
+                              <Link to="/sounds">
+                                   <Waves className="size-5"/>
+                              </Link>
                          </Button>
-                         <Button className="shadow-xs hover:text-primary rounded-r-4xl" variant="ghost" size="icon-lg" title="Պոմոդորո">
-                              <Timer className="size-5"/>
+                         <Button
+                              className="shadow-xs hover:text-primary rounded-r-4xl"
+                              variant={location.pathname==="/pomodoro" ? "secondary" : "ghost"}
+                              size="icon" title="Պոմոդորո" asChild
+                         >
+                              <Link to="/pomodoro">
+                                   <Timer className="size-5"/>
+                              </Link>
                          </Button>
                     </div>
-                    <Button className="bg-muted/30" variant="ghost" size="icon-lg" title="Կարգավորումներ">
-                         <Cog className="size-5"/>
-                    </Button>
+                    <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl">
+                         <Button 
+                              className="shadow-xs text-primary rounded-l-4xl"
+                              variant="ghost"
+                              size="icon" title="Կարգավորումներ"
+                         >
+                              <Cog className="size-5"/>
+                         </Button>
+                         <ModeToggle/>
+                    </div>
                </div>
           </main>
      )

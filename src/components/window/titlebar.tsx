@@ -4,13 +4,13 @@ import { SiGithub } from "react-icons/si"
 import { Copy, Minus, Square, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 interface TitleBarProps{
      title?: string,
 }
 export default function TitleBar({title}: TitleBarProps){
-     const appWindow = getCurrentWindow()
+     const appWindow = useMemo(()=>getCurrentWindow(),[])
      const [isMaximized, setIsMaximized] = useState(false)
      const handleClose = async () => await appWindow.close();
      const handleToggleMaximize = async () => {
@@ -19,23 +19,27 @@ export default function TitleBar({title}: TitleBarProps){
      }
      const handleMinimize = async () => await appWindow.minimize()
      useEffect(() => {
-          const syncState = async () => {
-               setIsMaximized(await appWindow.isMaximized())
-          }
-          syncState()
-          const unlisten = appWindow.onResized(syncState)
+          let unlisten: (() => void) | undefined;
+          const setup = async () => {
+               const syncState = async () => {
+                    setIsMaximized(await appWindow.isMaximized());
+               };
+               await syncState();
+               unlisten = await appWindow.onResized(syncState);
+          };
+          setup();
           return () => {
-               unlisten.then(fn => fn())
-          }
-     }, [])
+               if (unlisten) unlisten();
+          };
+     }, [appWindow])
      return (
           <div className="flex items-center justify-between gap-2 bg-linear-to-b from-secondary to-transparent text-foreground pl-2 fixed top-0 left-0 z-30 w-full h-10 backdrop-blur-xs">
                <DropdownMenu>
-                    <DropdownMenuTrigger>
-                         <img src="/app-icon.png" alt="Հանգիստ Տրամադրություն" width={30} height={30} className="select-none rounded-xs"/> 
+                    <DropdownMenuTrigger asChild>
+                         <img src="/app-icon.png" alt="Հանգիստ Տրամադրություն" width={30} height={30} className="select-none rounded-xs cursor-pointer"/> 
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-full min-w-32 bg-popover/60 backdrop-blur-sm border-0 shadow-xs">
-                         <DropdownMenuLabel>{title}</DropdownMenuLabel>
+                         <DropdownMenuLabel>Հանգիստ Տրամադրություն</DropdownMenuLabel>
                          <DropdownMenuSeparator/>
                          <DropdownMenuItem>
                               <Info className="text-muted-foreground opacity-70"/>
@@ -64,10 +68,11 @@ export default function TitleBar({title}: TitleBarProps){
                          </DropdownMenuItem>
                     </DropdownMenuContent>
                </DropdownMenu>
-               <div
-                    data-tauri-drag-region
-                    className="flex-1 h-full"
-               />
+               <div className="flex-1 h-full flex items-center ml-1 select-none text-base">
+                    <div data-tauri-drag-region className="w-full h-full flex items-center">
+                         {title}
+                    </div>
+               </div>
                <div className="flex items-center">
                     <Button className="rounded-none" size="icon" variant="ghost" title="Minimize" onClick={handleMinimize}><Minus/></Button>
                     <Button className="rounded-none" size="icon" variant="ghost" title={isMaximized ? "Restore Down" : "Maximize"} onClick={handleToggleMaximize}>
