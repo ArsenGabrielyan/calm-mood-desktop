@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../theme-provider";
 
 interface TitleBarProps{
      title?: string,
@@ -34,11 +35,13 @@ export default function TitleBar({title}: TitleBarProps){
           };
      }, [appWindow])
      const {t} = useTranslation()
+     const {resolvedTheme} = useTheme()
+     const appIcon = useMemo(()=>resolvedTheme==="dark" ? "/logo-dark-aero.png" : "/logo-aero.png",[resolvedTheme])
      return (
           <div className="flex items-center justify-between gap-2 bg-linear-to-b from-secondary to-transparent text-foreground pl-2 fixed top-0 left-0 z-30 w-full h-10 backdrop-blur-xs">
                <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                         <img src="/app-icon.png" alt={t("appName")} width={30} height={30} className="select-none rounded-xs cursor-pointer"/> 
+                         <img src={appIcon} alt={t("appName")} width={30} height={30} className="select-none rounded-xs cursor-pointer"/> 
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-full min-w-32 bg-popover/60 backdrop-blur-sm border-0 shadow-xs">
                          <DropdownMenuLabel>{t("appName")}</DropdownMenuLabel>
