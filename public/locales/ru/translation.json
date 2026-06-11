@@ -7,8 +7,16 @@
     "green": "/logos/ru/logo-green.webp",
     "lime": "/logos/ru/logo-lime.webp"
   },
+  "dropdown": {
+    "github-link": "Посмотреть на GitHub",
+    "about": "Об этом приложении",
+    "docs": "Руководство",
+    "contribute": "Внести свой вклад",
+    "bug-report": "Сообщить об ошибке",
+    "feature-request": "Запросить функцию",
+    "translate": "Добавить свой язык"
+  },
   "allRightsReserved": "Все права защищены",
-  "github-link": "Посмотреть на GitHub",
   "buttons": {
     "sounds": "Расслабляющие звуки",
     "exercise": "Дыхательные упражнения",
@@ -17,8 +25,6 @@
     "apply": "Применять",
     "cancel": "Отменить"
   },
-  "backButton": "Назад",
-  "learnMore": "Подробнее",
   "theme": "Изменить режим",
   "please-wait": "Пожалуйста, подождите..."
 }

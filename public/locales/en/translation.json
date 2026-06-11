@@ -7,8 +7,16 @@
     "green": "/logos/en/logo-green.webp",
     "lime": "/logos/en/logo-lime.webp"
   },
+  "dropdown": {
+    "github-link": "View on GitHub",
+    "about": "About the app",
+    "docs": "Documentation",
+    "contribute": "Contribute",
+    "bug-report": "Report a bug",
+    "feature-request": "Request a feature",
+    "translate": "Add Your Language"
+  },
   "allRightsReserved": "All Rights Reserved",
-  "github-link": "View on GitHub",
   "buttons": {
     "sounds": "Relaxing Sounds",
     "exercise": "Breathing Exercise",
@@ -17,8 +25,6 @@
     "apply": "Apply",
     "cancel": "Cancel"
   },
-  "backButton": "Back",
-  "learnMore": "Learn More",
   "theme": "Change Theme",
   "please-wait": "Please wait..."
 }

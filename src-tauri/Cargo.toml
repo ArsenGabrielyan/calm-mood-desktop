@@ -1,8 +1,8 @@
 [package]
 name = "calm-mood-desktop"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+version = "0.2.0"
+description = "A meditation app that helps you calm the human nervous system in case of stress, tension or depression."
+authors = ["Arsen G"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

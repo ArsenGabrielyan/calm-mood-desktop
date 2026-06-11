@@ -7,8 +7,16 @@
     "green": "/logos/logo-green.webp",
     "lime": "/logos/logo-lime.webp"
   },
+  "dropdown": {
+    "github-link": "Դիտել GitHub-ում",
+    "about": "Այս հավելվածի մասին",
+    "docs": "Ձեռնարկ",
+    "contribute": "Մասնակցեք",
+    "bug-report": "Հաղորդել սխալի մասին",
+    "feature-request": "Խնդրել նոր ֆունկցիա",
+    "translate": "Ավելացրեք ձեր լեզուն"
+  },
   "allRightsReserved": "Բոլոր իրավունքները պաշտպանված են",
-  "github-link": "Դիտել GitHub-ում",
   "buttons": {
     "sounds": "Հանգստացնող ձայներ",
     "exercise": "Շնչառական վարժություն",
@@ -17,8 +25,6 @@
     "apply": "Հաստատել",
     "cancel": "Չեղարկել"
   },
-  "backButton": "Վերադառնալ",
-  "learnMore": "Մանրամասն",
   "theme": "Փոխել ոճը",
   "please-wait": "Խնդրում ենք սպասել..."
 }

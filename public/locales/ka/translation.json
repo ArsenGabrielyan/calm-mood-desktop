@@ -7,8 +7,16 @@
     "green": "/logos/ge/logo-green.webp",
     "lime": "/logos/ge/logo-lime.webp"
   },
+  "dropdown": {
+    "github-link": "ნახვა GitHub-ზე",
+    "about": "ამ აპლიკაციის შესახებ",
+    "docs": "სახელმძღვანელო",
+    "contribute": "წვლილის შეტანა",
+    "bug-report": "შეცდომის შესახებ შეტყობინება",
+    "feature-request": "ფუნქციის მოთხოვნა",
+    "translate": "დაამატეთ თქვენი ენა"
+  },
   "allRightsReserved": "ყველა უფლება დაცულია",
-  "github-link": "ნახვა GitHub-ზე",
   "buttons": {
     "sounds": "დამამშვიდებელი ხმები",
     "exercise": "სუნთქვითი ვარჯიში",
@@ -17,8 +25,6 @@
     "apply": "გამოყენება",
     "cancel": "გაუქმება"
   },
-  "backButton": "უკან",
-  "learnMore": "გაიგეთ მეტი",
   "theme": "სტილის შეცვლა",
   "please-wait": "გთხოვთ, დაელოდოთ..."
 }

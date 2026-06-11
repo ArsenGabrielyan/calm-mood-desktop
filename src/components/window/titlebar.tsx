@@ -1,4 +1,4 @@
-import { BookOpen, Code, Grid2X2Plus, Info, MessageCircleWarning } from "lucide-react"
+import { BookOpen, Code, Grid2X2Plus, Info, Languages, MessageCircleWarning } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { SiGithub } from "react-icons/si"
 import { Copy, Minus, Square, X } from "lucide-react"
@@ -48,28 +48,32 @@ export default function TitleBar({title}: TitleBarProps){
                          <DropdownMenuSeparator/>
                          <DropdownMenuItem>
                               <Info className="text-muted-foreground opacity-70"/>
-                              Այս հավելվածի մասին
+                              {t("dropdown.about")}
                          </DropdownMenuItem>
                          <DropdownMenuItem>
                               <SiGithub className="text-muted-foreground opacity-70"/>
-                              Դիտել GitHub-ում
+                              {t("dropdown.github-link")}
                          </DropdownMenuItem>
                          <DropdownMenuItem>
                               <BookOpen className="text-muted-foreground opacity-70"/>
-                              Ձեռնարկ
+                              {t("dropdown.docs")}
                          </DropdownMenuItem>
                          <DropdownMenuItem>
                               <Code className="text-muted-foreground opacity-70"/>
-                              Մասնակցել
+                              {t("dropdown.contribute")}
                          </DropdownMenuItem>
                          <DropdownMenuSeparator/>
                          <DropdownMenuItem>
                               <MessageCircleWarning className="text-muted-foreground opacity-70"/>
-                              Հաղորդել սխալի մասին
+                              {t("dropdown.bug-report")}
                          </DropdownMenuItem>
                          <DropdownMenuItem>
                               <Grid2X2Plus className="text-muted-foreground opacity-70"/>
-                              Խնդրել նոր գործառույթ
+                              {t("dropdown.feature-request")}
+                         </DropdownMenuItem>
+                         <DropdownMenuItem>
+                              <Languages className="text-muted-foreground opacity-70"/>
+                              {t("dropdown.translate")}
                          </DropdownMenuItem>
                     </DropdownMenuContent>
                </DropdownMenu>
