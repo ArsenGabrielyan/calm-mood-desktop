@@ -74,8 +74,10 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 #### v0.3.0 (Expansion, Next)
 - [ ] Pomodoro Timer Support
 - [ ] About Page
+- [ ] Breathing Exercise settings
 #### v0.4.0 (Stability)
 - [ ] Updater support
+- [ ] Skeleton loading of few components
 
 ### Download
 You can find the latest stable version of Calm Mood Desktop right here
@@ -156,10 +158,6 @@ Distributed under the MIT License. See [LICENSE.md][license-url] for more inform
 [rust-url]: https://rust-lang.org/
 [react-router-shield]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://reactrouter.com
-
-<!-- Screenshots -->
-[exercise-screenshot]: ./.github/demo-exercise.png
-[sounds-screenshot]: ./.github/demo-sounds.png
 
 <!-- External Links -->
 [github-url]: https://github.com/ArsenGabrielyan
