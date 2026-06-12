@@ -52,6 +52,9 @@
 </details>
 
 ## About
+![Screenshot of Breathing Exercise feature][exercise-screenshot]
+![Screenshot of Relaxing Sounds feature][sounds-screenshot]
+
 **Calm Mood Desktop** is the offline version of **Calm Mood**. This app helps to calm the human nervous system, creating a spiritually peaceful environment. It awakens a love for nature, helping a person feel calm and harmonious. A person will learn new things about
 - The forest
 - Rivers
@@ -158,6 +161,10 @@ Distributed under the MIT License. See [LICENSE.md][license-url] for more inform
 [rust-url]: https://rust-lang.org/
 [react-router-shield]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://reactrouter.com
+
+<!-- Screenshots -->
+[exercise-screenshot]: ./.github/demo-exercise.png
+[sounds-screenshot]: ./.github/demo-sounds.png
 
 <!-- External Links -->
 [github-url]: https://github.com/ArsenGabrielyan

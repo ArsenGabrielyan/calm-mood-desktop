@@ -212,10 +212,33 @@
   body {
     @apply bg-background text-foreground;
   }
+  h1, h2, h3, h4, h5, h6{
+    @apply font-heading
+  }
+  ::selection{
+    @apply bg-accent text-accent-foreground;
+  }
+  ::-webkit-scrollbar{
+    @apply w-3 bg-background
+  }
+  ::-webkit-scrollbar-thumb{
+    @apply bg-linear-to-b from-transparent via-secondary to-primary rounded-md
+  }
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
   }
   html {
     @apply font-sans;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathing-root .animate-grow-circle { animation: growCircleNoGlow linear forwards !important; }
+  .breathing-root :where(*:not(.animate-grow-circle,.animate-shrink-circle),*::before,*::after){
+    animation: none !important;
+    transition-property: none !important;
+  }
+  *,*::before,*::after{transition-property: none !important;}
+  .breathing-root .animate-hold-circle { animation: none !important; }
+  .breathing-root .animate-shrink-circle { animation: shrinkCircle linear forwards !important; }
 }
