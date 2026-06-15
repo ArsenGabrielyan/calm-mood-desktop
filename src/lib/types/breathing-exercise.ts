@@ -12,7 +12,7 @@ export type BreathingPatternId =
 export type CirclePhase = "growing" | "hold" | "shrinking"
 
 export interface BreathingExerciseState{
-  text: string,
+  text: BreathingPhase,
   circleType: CirclePhase,
   prevCircleType?: CirclePhase;
   open: boolean,

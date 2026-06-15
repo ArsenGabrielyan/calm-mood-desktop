@@ -2,9 +2,11 @@
 All notable changes of Calm Mood Desktop will be documented here.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-## [0.2.1] - Unreleased
+## [0.2.1] - 2026-06-15
 ### Added
 - New Scrollbar Design
+- Pomodoro Settings UI
+- Breathing Exercise Settings
 ### Changed
 - Fonts on some parts
 ### Improved

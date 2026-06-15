@@ -77,7 +77,6 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 #### v0.3.0 (Expansion, Next)
 - [ ] Pomodoro Timer Support
 - [ ] About Page
-- [ ] Breathing Exercise settings
 #### v0.4.0 (Stability)
 - [ ] Updater support
 - [ ] Skeleton loading of few components

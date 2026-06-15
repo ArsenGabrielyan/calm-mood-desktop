@@ -7,12 +7,14 @@ import ActionButtons from "./actions";
 interface WindowWrapperProps{
      children: React.ReactNode,
      title?: string,
-     className?: string
+     className?: string,
+     variant?: "breathing-exercise" | "pomodoro"
 }
 export default function WindowWrapper({
      children,
      title,
-     className
+     className,
+     variant
 }: WindowWrapperProps){
      return (
           <main className="w-full h-full relative">
@@ -27,7 +29,7 @@ export default function WindowWrapper({
                          {children}
                     </div>
                </main>
-               <ActionButtons/>
+               <ActionButtons variant={variant}/>
           </main>
      )
 }

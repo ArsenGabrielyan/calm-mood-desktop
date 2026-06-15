@@ -1,5 +1,5 @@
 import { Button } from "../ui/button";
-import { Cog, Pause, Play, Square, Timer, Waves, Wind } from "lucide-react";
+import { Pause, Play, Square, Timer, Waves, Wind } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { ModeToggle } from "../mode-toggler";
 import { useTranslation } from "react-i18next";
@@ -7,8 +7,12 @@ import { useSound } from "@/context/sounds";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "@/i18n/languages";
+import SettingsButton from "../settings";
 
-export default function ActionButtons(){
+interface ActionButtonsProps{
+     variant?: "breathing-exercise" | "pomodoro"
+}
+export default function ActionButtons({variant}: ActionButtonsProps){
      const {t} = useTranslation()
      const {t: soundTxt} = useTranslation("sounds")
      const location = useLocation()
@@ -16,7 +20,7 @@ export default function ActionButtons(){
      const label = useMemo(()=>playback === "playing" ? "pause" : playback === "paused" ? "resume" : "play",[playback])
      return (
           <div className="fixed bottom-0 left-0 w-full flex justify-between items-center gap-2 p-4 bg-linear-to-b from-transparent to-secondary backdrop-blur-xs z-20">
-               <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl">
+               <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl flex items-center justify-center">
                     <Button
                          className={cn("shadow-xs rounded-l-4xl", location.pathname==="/" ? "text-primary" : "hover:text-primary")}
                          variant={location.pathname==="/" ? "secondary" : "ghost"} 
@@ -46,7 +50,7 @@ export default function ActionButtons(){
                     </Button>
                </div>
                {location.pathname==="/sounds" && (
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                          <Button size="icon" onClick={handlePlayPause} title={soundTxt(label)}>
                               {playback==="playing" ? <Pause className="size-5"/> : <Play className="size-5"/>}
                          </Button>
@@ -55,14 +59,8 @@ export default function ActionButtons(){
                          </Button>
                     </div>
                )}
-               <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl">
-                    <Button 
-                         className="shadow-xs text-primary rounded-l-4xl"
-                         variant="ghost"
-                         size="icon" title={t("buttons.settings")}
-                    >
-                         <Cog className="size-5"/>
-                    </Button>
+               <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl flex items-center justify-center">
+                    <SettingsButton variant={variant}/>
                     <ModeToggle/>
                     <LanguageSwitcher/>
                </div>

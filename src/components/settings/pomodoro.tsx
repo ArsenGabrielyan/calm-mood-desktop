@@ -8,11 +8,12 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { AlarmClock } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 
-interface PomodoroFormProps{
-     onSubmit: (values: PomodoroType) => void
+interface Props{
+     setOpen: (open: boolean) => void,
 }
-export default function PomodoroForm({onSubmit}: PomodoroFormProps){
+export default function PomodoroSettings({setOpen}: Props){
      const {t} = useTranslation("pomodoro")
      const form = useForm<PomodoroType>({
           resolver: zodResolver(getPomodoroSchema(t)),
@@ -24,16 +25,16 @@ export default function PomodoroForm({onSubmit}: PomodoroFormProps){
           }
      })
      const handleSubmit = (values: PomodoroType) => {
-          onSubmit(values);
-          form.reset({
-               focus: "30",
-               shortBreak: "10",
-               longBreak: "25",
-               loops: "8"
-          })
+          const validatedFields = getPomodoroSchema(t).safeParse(values);
+          if(!validatedFields.success) {
+               toast.error("Դաշտերը անվավեր են");
+               return;
+          }
+          console.log(validatedFields.data)
+          setOpen(false)
      }
      return (
-          <form onSubmit={form.handleSubmit(handleSubmit)} className="bg-card text-card-foreground border shadow-sm rounded-md p-5 flex justify-center items-center flex-col w-full mt-4 gap-4">
+          <form onSubmit={form.handleSubmit(handleSubmit)}>
                <FieldSet className="w-full gap-4">
                     <FieldGroup className="w-full gap-4">
                          <Controller

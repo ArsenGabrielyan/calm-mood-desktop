@@ -10,28 +10,38 @@ import { BREATHING_PATTERNS } from "@/lib/constants/maps";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { PRESETS } from "@/lib/constants";
 import { useTranslation } from "react-i18next";
+import { useBreathingExercise } from "@/context/breathing-exercise";
+import { toast } from "sonner";
 
 interface Props{
-     onSubmit: (values: BreathingExerciseType) => void,
      setOpen: (open: boolean) => void,
-     defaultValue: {
-          time: number,
-          pattern: BreathingPatternId
-     },
 }
-
-export default function ExerciseSettings({onSubmit, setOpen, defaultValue}: Props){
+export default function ExerciseSettings({setOpen}: Props){
      const {t} = useTranslation("breathing-exercise")
+     const {state, applySettings} = useBreathingExercise()
      const form = useForm<BreathingExerciseType>({
           resolver: zodResolver(getBreathingExerciseSchema(t)),
           defaultValues: {
-               exerciseTime: Math.round(defaultValue.time).toString(),
-               pattern: defaultValue.pattern
+               exerciseTime: Math.round(state.time).toString(),
+               pattern: state.pattern
           }
      })
      const cycleMs = Number(form.watch("exerciseTime")) * 1000;
      const holdTime = useMemo(()=>cycleMs/5, [cycleMs]);
      const growTime = holdTime * 2;
+     const onSubmit = (values: BreathingExerciseType) => {
+          const validatedFields = getBreathingExerciseSchema(t).safeParse(values);
+          if(!validatedFields.success) {
+               toast.error("Դաշտերը անվավեր են");
+               return;
+          }
+          const {exerciseTime, pattern} = validatedFields.data;
+          applySettings({
+               exerciseTime,
+               pattern
+          });
+          setOpen(false);
+     }
      return (
           <form onSubmit={form.handleSubmit(onSubmit)}>
                <FieldSet>
@@ -62,11 +72,11 @@ export default function ExerciseSettings({onSubmit, setOpen, defaultValue}: Prop
                          </Field>
                          <Field>
                               <FieldLabel>{t("settings.presets")}</FieldLabel>
-                              <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                                    {PRESETS.map(({id, Icon, seconds})=>(
                                         <Button variant={Number(form.watch("exerciseTime"))===seconds ? "default" : "outline"} key={id} onClick={()=>form.setValue("exerciseTime",seconds.toString())} type="button">
                                              <Icon className="size-5" />
-                                             {t("settings.seconds",{seconds})}
+                                             {t("settings.seconds",{count: seconds})}
                                         </Button>
                                    ))}
                               </div>
