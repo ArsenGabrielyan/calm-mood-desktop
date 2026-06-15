@@ -9,21 +9,37 @@
      "pause": "Դադարեցնել",
      "stop": "Կանգնեցնել",
      "close": "Փակել",
+     "start": "Սկսել",
      "confirmation": "Կանգնեցնե՞լ Պոմոդորոյի հիմնական պրոցեսը։",
      "form": {
           "focus-time": "Կենտրոնացում",
           "short-break": "Կարճ ընդմիջում",
           "long-break": "Երկար ընդմիջում",
           "loops": "Ցիկլներ",
-          "start": "Սկսել",
+          "apply": "Կիրառել",
           "cancel": "Չեղարկել"
+     },
+     "presets": {
+          "title": "Նախադրված Կարգավորումներ",
+          "desc-format_zero": "Զրո րոպե, {{loops}} ցիկլ",
+          "desc-format_one": "Մեկ րոպե, {{loops}} ցիկլ",
+          "desc-format_two": "Երկու րոպե, {{loops}} ցիկլ",
+          "desc-format_few": "{{count}} րոպե, {{loops}} ցիկլ",
+          "desc-format_many": "{{count}} րոպե, {{loops}} ցիկլ",
+          "desc-format_other": "{{count}} րոպե, {{loops}} ցիկլ",
+          "balanced": "Հավասարակշռված",
+          "lightStart": "Թեթև մեկնարկ",
+          "deepWork": "Խորը աշխատանք",
+          "easyMode": "Պարզ ռեժիմ",
+          "learning": "Ուսումնառության ռեժիմ"
      },
      "validation": {
           "focus-time": "Կենտրոնացման ժամը պետք է լինի 25-ից մոտ 60 րոպե",
           "short-break": "Կարճ ընդմիջման ժամը պետք է լինի 5-ից մոտ 25 րոպե",
           "long-break": "Երկար ընդմիջման ժամը պետք է լինի 10-ից մոտ 40 րոպե",
           "loops": "Ցիկլը պետք է լինի 2-ից 10 անգամ",
-          "invalid-fields": "Դաշտերը անվավեր են"
+          "invalid-fields": "Դաշտերը անվավեր են",
+          "should-be-int": "Այս դաշտը պետք է լինի ամբողջ թիվ"
      },
      "notifications": {
           "focus": "Դուք պատրաստ եք կրկին կենտրոնանալու",

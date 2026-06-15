@@ -15,20 +15,8 @@ export const getBreathingExerciseSchema = (t: TFunction<"breathing-exercise">) =
 })
 
 export const getPomodoroSchema = (t: TFunction<"pomodoro">) => z.object({
-     focus: z.string().trim().refine(v => {
-          const n = Number(v);
-          return n >= 25 && n <= 60;
-     }, t("validation.focus-time")),
-     shortBreak: z.string().trim().refine(v => {
-          const n = Number(v);
-          return n >= 5 && n <= 25;
-     }, t("validation.short-break")),
-     longBreak: z.string().trim().refine(v => {
-          const n = Number(v);
-          return n >= 10 && n <= 40;
-     }, t("validation.long-break")),
-     loops: z.string().trim().refine(v => {
-          const n = Number(v);
-          return n >= 2 && n <= 10;
-     }, t("validation.loops"))
+     focus: z.int(t("validation.should-be-int")).refine(n => n >= 10 && n <= 60, t("validation.focus-time")),
+     shortBreak: z.int(t("validation.should-be-int")).refine(n => n >= 5 && n <= 25, t("validation.short-break")),
+     longBreak: z.int(t("validation.should-be-int")).refine(n => n >= 10 && n <= 40, t("validation.long-break")),
+     loops: z.int(t("validation.should-be-int")).refine(n => n >= 2 && n <= 10, t("validation.loops"))
 })

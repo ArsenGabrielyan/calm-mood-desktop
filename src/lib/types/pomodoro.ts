@@ -1,5 +1,6 @@
 import * as z from "zod"
 import { getPomodoroSchema } from "../schemas";
+import { POMODORO_PRESETS } from "../constants/maps";
 
 export interface PomodoroState{
      focus: number,
@@ -21,3 +22,4 @@ export interface PomodoroRuntime{
 export type PomodoroType = z.infer<
      Awaited<ReturnType<typeof getPomodoroSchema>>
 >
+export type PomodoroPresetId = keyof typeof POMODORO_PRESETS;

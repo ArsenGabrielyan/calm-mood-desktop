@@ -1,20 +1,24 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { PomodoroState, PomodoroRuntime, PomodoroType } from "@/lib/types/pomodoro";
+import { PomodoroState, PomodoroRuntime, PomodoroType, PomodoroPresetId } from "@/lib/types/pomodoro";
 import { INITIAL_POMODORO_STATE } from "@/lib/constants";
 import { ask } from "@tauri-apps/plugin-dialog";
 import { useTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/plugin-notification';
+import { POMODORO_PRESETS } from "@/lib/constants/maps";
 
 interface PomodoroContextValues {
      state: PomodoroState
      runtime: PomodoroRuntime
      t: TFunction<"pomodoro">
+     selectedPreset: PomodoroPresetId | null,
+     setSelectedPreset: (preset: PomodoroPresetId | null) => void,
 
-     start: (values?: PomodoroType) => void
+     start: () => void
      pause: () => void
      resume: () => void
      stop: () => Promise<void>
+     apply: (values?: PomodoroType) => void
 }
 
 const PomodoroContext = createContext<PomodoroContextValues | null>(null);
@@ -23,7 +27,7 @@ export function PomodoroProvider({ children }: { children: React.ReactNode }) {
      const {t} = useTranslation("pomodoro")
      const {t: mainTxt} = useTranslation()
      const prevPhaseRef = useRef<PomodoroRuntime["phase"]>("idle");
-
+     const [selectedPreset, setSelectedPreset] = useState<PomodoroPresetId | null>("balanced")
      const [permissionGranted, setPermissionGranted] = useState(false)
      const [state, setStateRaw] = useState<PomodoroState>(INITIAL_POMODORO_STATE);
      const setState = (overrides: Partial<PomodoroState>) => setStateRaw(prev=>({...prev, ...overrides}));
@@ -35,34 +39,43 @@ export function PomodoroProvider({ children }: { children: React.ReactNode }) {
           isPaused: false,
           initialized: false,
      });
+     const updateRuntime = (overrides: Partial<PomodoroRuntime>) => setRuntime(prev=>({...prev, ...overrides}))
      const audioRef = useRef<HTMLAudioElement | null>(null);
-     const start = (valuesRaw?: PomodoroType) => {
-          const values = valuesRaw || {
-               focus: "30",
-               shortBreak: "15",
-               longBreak: "25",
-               loops: "8"
-          }
-          const focus = parseInt(values.focus);
+     const apply = (valuesRaw?: PomodoroType) => {
+          const values = valuesRaw || POMODORO_PRESETS[selectedPreset ?? "balanced"]
+          const matchPreset = Object.entries(POMODORO_PRESETS).find(
+               ([, val]) =>
+               val.focus === values.focus &&
+               val.shortBreak === values.shortBreak &&
+               val.longBreak === values.longBreak &&
+               val.loops === values.loops
+          )
+          setSelectedPreset(matchPreset?.[0] as PomodoroPresetId ?? null)
           setState({
-               focus,
-               shortBreak: parseInt(values.shortBreak),
-               longBreak: parseInt(values.longBreak),
-               loops: parseInt(values.loops),
-               isStarted: true,
+               focus: values.focus,
+               shortBreak: values.shortBreak,
+               longBreak: values.longBreak,
+               loops: values.loops,
           });
-          const focusSec = focus * 60;
-          setRuntime({
-               phase: "focus",
+          const focusSec = values.focus * 60;
+          updateRuntime({
                remaining: focusSec,
                total: focusSec,
+          });
+     }
+     const start = () => {
+          setState({
+               isStarted: true,
+          });
+          updateRuntime({
+               phase: "focus",
                loopIndex: 1,
                isPaused: false,
                initialized: false,
           });
      };
-     const pause = () => setRuntime(prev => ({ ...prev, isPaused: true }));
-     const resume = () => setRuntime(prev => ({ ...prev, isPaused: false }));
+     const pause = () => updateRuntime({ isPaused: true });
+     const resume = () => updateRuntime({ isPaused: false });
      const stop = async () => {
           const confirmed = await ask(t("confirmation"),{
                title: mainTxt("appName")
@@ -149,7 +162,7 @@ export function PomodoroProvider({ children }: { children: React.ReactNode }) {
      useEffect(() => {
           if (!audioRef.current || runtime.phase === "idle") return;
           if (!runtime.initialized) {
-               setRuntime(prev => ({ ...prev, initialized: true }));
+               updateRuntime({ initialized: true });
                return;
           }
           audioRef.current.src = `/sounds/pomodoro-${runtime.phase === "focus" ? "focus" : "break"}.mp3`;
@@ -172,12 +185,15 @@ export function PomodoroProvider({ children }: { children: React.ReactNode }) {
      const value = useMemo(() => ({
           state,
           runtime,
+          selectedPreset,
+          setSelectedPreset,
           start,
           pause,
           resume,
           stop,
+          apply,
           t
-     }), [state, runtime]);
+     }), [state, runtime, selectedPreset]);
 
      return (
           <PomodoroContext.Provider value={value}>

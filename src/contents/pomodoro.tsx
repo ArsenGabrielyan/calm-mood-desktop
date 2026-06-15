@@ -27,7 +27,7 @@ export default function PomodoroContent(){
                     <div className="flex justify-center items-center flex-wrap gap-2 w-full">
                          <Button className="flex-1" onClick={() => runtime.phase === "idle" ? start() : runtime.isPaused ? resume() : pause()}>
                               {(runtime.isPaused || runtime.phase==="idle") ? <Play/> : <Pause/>}
-                              {runtime.phase==="idle" ? t("form.start") : runtime.isPaused ? t("continue") : t("pause")}
+                              {runtime.phase==="idle" ? t("start") : runtime.isPaused ? t("continue") : t("pause")}
                          </Button>
                          <Button className="flex-1" onClick={stop}>
                               <Square/> {t("stop")}

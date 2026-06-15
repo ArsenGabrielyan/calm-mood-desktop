@@ -9,21 +9,37 @@
      "pause": "პაუზა",
      "stop": "შეჩერება",
      "close": "დახურვა",
+     "start": "დაწყება",
      "confirmation": "შეწყდეს პომოდოროს ძირითადი პროცესი?",
      "form": {
           "focus-time": "ფოკუსირების დრო",
           "short-break": "მოკლე შესვენება",
           "long-break": "ხანგრძლივი შესვენება",
           "loops": "ციკლები",
-          "start": "დაწყება",
+          "apply": "გამოყენება",
           "cancel": "გაუქმება"
+     },
+     "presets": {
+          "title": "პრესეტი",
+          "desc-format_zero": "ნული წუთი, {{loops}} ციკლი",
+          "desc-format_one": "ერთი წუთი, {{loops}} ციკლი",
+          "desc-format_two": "ორი წუთი, {{loops}} ციკლი",
+          "desc-format_few": "{{count}} წუთი, {{loops}} ციკლი",
+          "desc-format_many": "{{count}} წუთი, {{loops}} ციკლი",
+          "desc-format_other": "{{count}} წუთი, {{loops}} ციკლი",
+          "balanced": "დაბალანსებული",
+          "lightStart": "მსუბუქი დაწყება",
+          "deepWork": "ღრმა სამუშაო",
+          "easyMode": "მარტივი რეჟიმი",
+          "learning": "სწავლის რეჟიმი"
      },
      "validation": {
           "focus-time": "ფოკუსირების დრო უნდა იყოს 25-დან დაახლოებით 60 წუთამდე",
           "short-break": "მოკლე შესვენების დრო უნდა იყოს 5-დან დაახლოებით 25 წუთამდე",
           "long-break": "ხანგრძლივი შესვენებები უნდა იყოს 10-დან 40 წუთამდე",
           "cycles": "ციკლი უნდა იყოს 2-დან 10 წუთამდე ჯერ",
-          "invalid-fields": "ველები არასწორია"
+          "invalid-fields": "ველები არასწორია",
+          "should-be-int": "ეს ველი უნდა იყოს მთელი რიცხვი"
      },
      "notifications": {
           "focus": "თქვენ მზად ხართ კვლავ ფოკუსირებისთვის",

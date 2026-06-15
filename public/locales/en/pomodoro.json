@@ -9,21 +9,37 @@
      "pause": "Pause",
      "stop": "Stop",
      "close": "Close",
+     "start": "Start",
      "confirmation": "Stop the main Pomodoro process?",
      "form": {
           "focus-time": "Focus Time",
           "short-break": "Short Break",
           "long-break": "Long Break",
           "loops": "Loops",
-          "start": "Start",
+          "apply": "Apply",
           "cancel": "Cancel"
+     },
+     "presets": {
+          "title": "Presets",
+          "desc-format_zero": "Zero minutes, {{loops}} loops",
+          "desc-format_one": "One minute, {{loops}} loops",
+          "desc-format_two": "Two minutes, {{loops}} loops",
+          "desc-format_few": "{{count}} minutes, {{loops}} loops",
+          "desc-format_many": "{{count}} minutes, {{loops}} loops",
+          "desc-format_other": "{{count}} minutes, {{loops}} loops",
+          "balanced": "Balanced",
+          "lightStart": "Light Start",
+          "deepWork": "Deep Work",
+          "easyMode": "Easy Mode",
+          "learning": "Learning Mode"
      },
      "validation": {
           "focus-time": "Focus time should be between 25 and about 60 minutes",
           "short-break": "Short break time should be between 5 and about 25 minutes",
           "long-break": "Long break time should be between 10 and about 40 minutes",
           "loops": "Cycle should be between 2 and 10 times",
-          "invalid-fields": "All fields are invalid"
+          "invalid-fields": "All fields are invalid",
+          "should-be-int": "This field must be an integer"
      },
      "notifications": {
           "focus": "You're ready to focus again",
