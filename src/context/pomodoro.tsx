@@ -113,7 +113,6 @@ export function PomodoroProvider({ children }: { children: React.ReactNode }) {
                initialized: prev.initialized,
           };
      };
-
      const notify = async(message: string) => {
           if (!permissionGranted) {
                const permission = await requestPermission();
@@ -125,21 +124,17 @@ export function PomodoroProvider({ children }: { children: React.ReactNode }) {
           })
      }
 
-     const text = useMemo(()=>{
-          if (runtime.phase === "focus") {
-               return t("notifications.focus");
-          } else {
-               return t("notifications.break");
-          }
-     },[t])
-
      useEffect(() => {
           if (runtime.phase === "idle") return;
           if (prevPhaseRef.current !== runtime.phase) {
-               notify(text)
+               if (runtime.phase === "focus") {
+                    notify(t("notifications.focus"));
+               } else {
+                    notify(t("notifications.break"));
+               }
           }
           prevPhaseRef.current = runtime.phase;
-     }, [runtime.phase, text]);
+     }, [runtime.phase]);
 
      useEffect(()=>{
           const setupPerms = async() => {
