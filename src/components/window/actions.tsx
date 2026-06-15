@@ -61,7 +61,7 @@ export default function ActionButtons({variant}: ActionButtonsProps){
                )}
                <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl flex items-center justify-center">
                     <SettingsButton variant={variant}/>
-                    <ModeToggle/>
+                    <ModeToggle noVariant={!variant}/>
                     <LanguageSwitcher/>
                </div>
           </div>

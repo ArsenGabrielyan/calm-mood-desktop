@@ -2,13 +2,17 @@ import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "../context/theme-provider"
 import { useTranslation } from "react-i18next"
+import { cn } from "@/lib/utils"
 
-export function ModeToggle() {
+interface ModeToggleProps{
+  noVariant?: boolean
+}
+export function ModeToggle({noVariant = true}: ModeToggleProps) {
   const {resolvedTheme, setTheme} = useTheme()
   const {t} = useTranslation()
   return (
     <Button
-      className="shadow-xs text-primary rounded-none"
+      className={cn("shadow-xs text-primary rounded-none", noVariant && "rounded-l-4xl")}
       variant="ghost"
       size="icon" title={t("theme")}
       onClick={()=>setTheme(resolvedTheme==="dark" ? "light" : "dark")}
