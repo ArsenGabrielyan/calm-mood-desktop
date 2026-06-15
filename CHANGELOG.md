@@ -10,6 +10,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Content
   - Settings
   - Presets
+### Initialized
+- About Page (Currently it doesn't have a design)
 ### Improved
 - **Logo Dropdown** - Added links to make dropdown items work
 
