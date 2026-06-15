@@ -63,6 +63,12 @@
  
 reconnecting with nature in a new way. Visit the [Website][website-url] to try it :-)
 
+### Features
+- **Breathing Exercise** - Calm down easily by following the circle
+- **Soothing Sounds** - Create a soothing environment by listening to sounds of nature
+- **Pomodoro** - Boost productivity with the Pomodoro Timer feature
+  - If you're feeling overwhelmed before starting Pomodoro, try breathing or sounds first
+
 ### Built with
 - [![Tauri][tauri-shield]][tauri-url]
 - [![React][react-shield]][react-url]
