@@ -15,13 +15,7 @@
           "url": "https://*.github.com/**"
         },
         {
-          "url": "https://*.youtube.com/**"
-        },
-        {
           "url": "https://github.com/**"
-        },
-        {
-          "url": "https://youtube.com/**"
         }
       ]
     },
