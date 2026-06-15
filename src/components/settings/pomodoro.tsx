@@ -6,15 +6,16 @@ import { getPomodoroSchema } from "@/lib/schemas";
 import { Field, FieldError, FieldGroup, FieldLabel, FieldSet } from "../ui/field";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { AlarmClock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import { usePomodoro } from "@/context/pomodoro";
 
 interface Props{
      setOpen: (open: boolean) => void,
 }
 export default function PomodoroSettings({setOpen}: Props){
      const {t} = useTranslation("pomodoro")
+     const {start} = usePomodoro()
      const form = useForm<PomodoroType>({
           resolver: zodResolver(getPomodoroSchema(t)),
           defaultValues: {
@@ -27,10 +28,10 @@ export default function PomodoroSettings({setOpen}: Props){
      const handleSubmit = (values: PomodoroType) => {
           const validatedFields = getPomodoroSchema(t).safeParse(values);
           if(!validatedFields.success) {
-               toast.error("Դաշտերը անվավեր են");
+               toast.error(t("validation.invalid-fields"));
                return;
           }
-          console.log(validatedFields.data)
+          start(validatedFields.data)
           setOpen(false)
      }
      return (
@@ -59,7 +60,7 @@ export default function PomodoroSettings({setOpen}: Props){
                          />
                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               <Controller
-                                   name="longBreak"
+                                   name="shortBreak"
                                    control={form.control}
                                    render={({ field, fieldState }) => (
                                         <Field data-invalid={fieldState.invalid}>
@@ -79,7 +80,7 @@ export default function PomodoroSettings({setOpen}: Props){
                                    )}
                               />
                               <Controller
-                                   name="shortBreak"
+                                   name="longBreak"
                                    control={form.control}
                                    render={({ field, fieldState }) => (
                                         <Field data-invalid={fieldState.invalid}>
@@ -122,7 +123,13 @@ export default function PomodoroSettings({setOpen}: Props){
                     </FieldGroup>
                     <Field orientation="horizontal">
                          <Button type="submit">
-                              <AlarmClock/> {t("form.start")}
+                              {t("form.start")}
+                         </Button>
+                         <Button variant="outline" type="button" onClick={()=>{
+                              form.reset();
+                              setOpen(false);
+                         }}>
+                              {t("form.cancel")}
                          </Button>
                     </Field>
                </FieldSet>

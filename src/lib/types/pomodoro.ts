@@ -11,9 +11,9 @@ export interface PomodoroState{
      isStarted: boolean
 }
 export interface PomodoroRuntime{
-     phase: "focus" | "long-break" | "short-break"
-     remaining: number;   // seconds
-     total: number;       // seconds
+     phase: "focus" | "long-break" | "short-break" | "idle"
+     remaining: number;
+     total: number;
      loopIndex: number;
      isPaused: boolean;
      initialized: boolean;

@@ -1,6 +1,5 @@
 {
      "title": "Pomodoro Method",
-     "description": "Control work and break times by following a timer while working!",
      "phase": {
           "focus": "Focus",
           "long-break": "Long Break",
@@ -16,12 +15,19 @@
           "short-break": "Short Break",
           "long-break": "Long Break",
           "loops": "Loops",
-          "start": "Start"
+          "start": "Start",
+          "cancel": "Cancel"
      },
      "validation": {
           "focus-time": "Focus time should be between 25 and about 60 minutes",
           "short-break": "Short break time should be between 5 and about 25 minutes",
           "long-break": "Long break time should be between 10 and about 40 minutes",
-          "loops": "Cycle should be between 2 and 10 times"
-     }
+          "loops": "Cycle should be between 2 and 10 times",
+          "invalid-fields": "All fields are invalid"
+     },
+     "notifications": {
+          "focus": "You're ready to focus again",
+          "break": "Take a calm break"
+     },
+     "tip": "If you're feeling overwhelmed, try breathing or sounds first"
 }

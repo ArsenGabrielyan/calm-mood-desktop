@@ -75,11 +75,11 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 
 ### Planned Improvements
 #### v0.3.0 (Expansion, Next)
-- [ ] Pomodoro Timer Support
-- [ ] About Page
+- [X] Pomodoro Timer Support
+- [ ] Skeleton loading of few components
 #### v0.4.0 (Stability)
 - [ ] Updater support
-- [ ] Skeleton loading of few components
+- [ ] About Page
 
 ### Download
 You can find the latest stable version of Calm Mood Desktop right here

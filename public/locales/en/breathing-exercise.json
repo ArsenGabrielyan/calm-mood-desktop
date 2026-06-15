@@ -1,6 +1,5 @@
 {
      "title": "Breathing Exercise",
-     "description": "Follow the circle to calm your nerves, reduce stress, and restore harmony.",
      "breatheIn": "Breathe In",
      "hold": "Hold",
      "breatheOut": "Breathe Out",
@@ -12,7 +11,8 @@
      },
      "validations": {
           "duration": "Duration should be in between 12 and 300 seconds.",
-          "exercise-type": "The type of a breathing exercise is required."
+          "exercise-type": "The type of a breathing exercise is required.",
+          "invalid-fields": "All fields are invalid"
      },
      "settings": {
           "time": "Exercise Time",

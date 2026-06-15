@@ -32,7 +32,7 @@ export default function ExerciseSettings({setOpen}: Props){
      const onSubmit = (values: BreathingExerciseType) => {
           const validatedFields = getBreathingExerciseSchema(t).safeParse(values);
           if(!validatedFields.success) {
-               toast.error("Դաշտերը անվավեր են");
+               toast.error(t("validations.invalid-fields"));
                return;
           }
           const {exerciseTime, pattern} = validatedFields.data;
