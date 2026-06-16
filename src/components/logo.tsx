@@ -11,7 +11,7 @@ export default function Logo({width, height}: Props){
      const {t} = useTranslation()
      const logoImage = useMemo(() => {
           return theme === "light" ? t("logo.green") : t("logo.lime");
-     }, [theme]);
+     }, [theme, t]);
      return (
           <img
                src={logoImage}

@@ -10,10 +10,12 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Content
   - Settings
   - Presets
+- Skeleton Loading
 ### Initialized
-- About Page (Currently it doesn't have a design)
+- About Page (Only Logo and Version is ready)
 ### Improved
 - **Logo Dropdown** - Added links to make dropdown items work
+- **Calm Mood UI** - Improved UI/UX Responsibility
 
 ## [0.2.1] - 2026-06-15
 ### Added

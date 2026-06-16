@@ -2,24 +2,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function TitlebarLoader(){
      return (
-          <div className="flex items-center justify-between gap-2 border-b shadow-xs pl-2 fixed top-0 left-0 z-30 w-full h-9 backdrop-blur-md">
-               <div className="flex items-center gap-2 w-full">
-                    <Skeleton className="size-6 rounded-full"/>
-                    <div className="flex items-center gap-0.5 p-[3px] h-full border-0 bg-transparent shadow-none rounded-none">
-                         <Skeleton className="h-6 w-[34px]"/>
-                         <Skeleton className="h-6 w-9"/>
-                         <Skeleton className="h-6 w-[44px]"/>
-                         <Skeleton className="h-6 w-[46px]"/>
-                    </div>
+          <div className="flex items-center justify-between gap-2 bg-linear-to-b from-secondary to-transparent text-foreground pl-2 fixed top-0 left-0 z-30 w-full h-10 backdrop-blur-xs">
+               <Skeleton className="size-[30px]"/>
+               <div className="flex-1 h-full flex items-center ml-1 select-none text-base">
+                    <Skeleton className="h-3 sm:h-3.5 md:h-4 w-1/3"/>
                </div>
-               <div
-                    data-tauri-drag-region
-                    className="flex-1 h-full"
-               />
-               <div className="flex items-stretch">
-                    <Skeleton className="size-9"/>
-                    <Skeleton className="size-9"/>
-                    <Skeleton className="size-9"/>
+               <div className="flex items-center">
+                    <Skeleton className="size-9 bg-muted/50"/>
+                    <Skeleton className="size-9 bg-muted/50"/>
+                    <Skeleton className="size-9 bg-muted/50"/>
                </div>
           </div>
      )

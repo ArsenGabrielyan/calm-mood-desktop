@@ -19,7 +19,7 @@ export default function ActionButtons({variant}: ActionButtonsProps){
      const {handlePlayPause, playback, setPlayback} = useSound()
      const label = useMemo(()=>playback === "playing" ? "pause" : playback === "paused" ? "resume" : "play",[playback])
      return (
-          <div className="fixed bottom-0 left-0 w-full flex justify-between items-center gap-2 p-4 bg-linear-to-b from-transparent to-secondary backdrop-blur-xs z-20">
+          <div className="fixed bottom-0 left-0 w-full flex justify-center 2xs:justify-between items-center gap-2 p-4 bg-linear-to-b from-transparent to-secondary backdrop-blur-xs z-20 flex-wrap">
                <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl flex items-center justify-center">
                     <Button
                          className={cn("shadow-xs rounded-l-4xl", location.pathname==="/" ? "text-primary" : "hover:text-primary")}

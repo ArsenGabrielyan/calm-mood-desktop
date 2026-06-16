@@ -50,7 +50,7 @@ export default function SoundCard({ data }: SoundCardProps) {
                     />
                </div>
                <div className="w-full md:w-fit flex-2 flex flex-col items-center justify-between gap-4">
-                    <h2 className="text-3xl md:text-2xl font-semibold text-primary text-center">
+                    <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-2xl font-semibold text-primary text-center font-sans">
                          {t(`sounds.${id}`)}
                     </h2>
                     <div className="flex items-center gap-2 w-full">

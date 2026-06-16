@@ -1,10 +1,12 @@
 import { cn, getDailyBackground } from "@/lib/utils";
-import TitleBar from "./titlebar";
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import TitlebarLoader from "@/loaders/titlebar";
-import ActionButtons from "./actions";
+import ActionButtonsLoader from "@/loaders/actions-button";
 
-interface WindowWrapperProps{
+const TitleBar = lazy(()=>import("./titlebar"))
+const ActionButtons = lazy(()=>import("./actions"))
+
+export interface WindowWrapperProps{
      children: React.ReactNode,
      title?: string,
      className?: string,
@@ -29,7 +31,9 @@ export default function WindowWrapper({
                          {children}
                     </div>
                </main>
-               <ActionButtons variant={variant}/>
+               <Suspense fallback={<ActionButtonsLoader noVariant={!variant}/>}>
+                    <ActionButtons variant={variant}/>
+               </Suspense>
           </main>
      )
 }

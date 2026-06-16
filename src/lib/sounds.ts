@@ -1,7 +1,7 @@
 import { ISounds } from "./types"
 import {Birds, Rain, River, Beach, Train, Thunderstorm, Night, Lake, Waves, Waterfall} from "@/icons"
 
-const soundIds = [
+export const soundIds = [
      "birds", "rain",
      "river", "beach",
      "train", "thunderstorm",

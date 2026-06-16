@@ -73,7 +73,7 @@ export default function TitleBar({title}: TitleBarProps){
                          </DropdownMenuItem>
                     </DropdownMenuContent>
                </DropdownMenu>
-               <div className="flex-1 h-full flex items-center ml-1 select-none text-base">
+               <div className="flex-1 h-full flex items-center ml-1 select-none text-xs sm:text-sm md:text-base">
                     <div data-tauri-drag-region className="w-full h-full flex items-center">
                          {title}
                     </div>

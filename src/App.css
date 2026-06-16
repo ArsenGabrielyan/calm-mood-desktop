@@ -203,6 +203,9 @@
     50% { box-shadow: 0 0 30px 10px var(--color-secondary); }
     100% { box-shadow: 0 0 0 0 transparent; }
   }
+
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xs: 22rem;
 }
 
 @layer base {
