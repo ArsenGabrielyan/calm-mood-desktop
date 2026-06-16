@@ -9,7 +9,7 @@ function SoundCardLoader(){
                <Skeleton className="size-[85px]"/>
                <div className="w-full flex-2 flex flex-col items-center justify-between gap-4">
                     <Skeleton className="h-5 xs:h-6 sm:h-8 md:h-7 w-full"/>
-                    <VolumeSliderLoader className="max-w-32"/>
+                    <VolumeSliderLoader/>
                </div>
           </div>
      )
