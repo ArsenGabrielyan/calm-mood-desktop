@@ -80,10 +80,7 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 - [![React Router][react-router-shield]][react-router-url]
 
 ### Planned Improvements
-#### v0.3.0 (Expansion, Next)
-- [X] Pomodoro Timer Support
-- [X] Skeleton loading of few components
-#### v0.4.0 (Stability)
+#### v0.4.0 (First Stable Public Version)
 - [ ] Updater support
 - [ ] About Page
 
