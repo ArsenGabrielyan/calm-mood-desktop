@@ -82,7 +82,7 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 ### Planned Improvements
 #### v0.3.0 (Expansion, Next)
 - [X] Pomodoro Timer Support
-- [ ] Skeleton loading of few components
+- [X] Skeleton loading of few components
 #### v0.4.0 (Stability)
 - [ ] Updater support
 - [ ] About Page

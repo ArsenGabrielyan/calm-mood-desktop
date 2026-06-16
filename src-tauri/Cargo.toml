@@ -1,6 +1,6 @@
 [package]
 name = "calm-mood-desktop"
-version = "0.2.1"
+version = "0.3.0"
 description = "A meditation app that helps you calm the human nervous system in case of stress, tension or depression."
 authors = ["Arsen G"]
 edition = "2021"
