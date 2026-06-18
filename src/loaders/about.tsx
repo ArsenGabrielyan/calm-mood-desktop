@@ -7,6 +7,12 @@ export default function AboutLoader(){
                <div className="bg-card/40 backdrop-blur-sm text-card-foreground border shadow-xs rounded-md p-4 flex justify-center items-center flex-col gap-2 max-w-[400px] w-full">
                     <Skeleton className="w-full max-w-[480px] h-[163px]"/>
                     <Skeleton className="h-5 md:h-6 lg:h-8 xl:h-9 w-3/4"/>
+                    <div className="space-y-1 w-full">
+                         <Skeleton className="h-4 w-full"/>
+                         <Skeleton className="h-4 w-3/4"/>
+                    </div>
+                    <Skeleton className="h-4 w-1/3"/>
+                    <Skeleton className="h-4 w-1/3"/>
                </div>
           </WindowWrapperLoader>
      )

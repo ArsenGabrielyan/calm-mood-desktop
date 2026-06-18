@@ -1,16 +1,5 @@
 import { cn } from "@/lib/utils"
 
-export {default as Beach} from "./beach"
-export {default as Birds} from "./birds"
-export {default as Lake} from "./lake"
-export {default as Night} from "./night"
-export {default as Rain} from "./rain"
-export {default as River} from "./river"
-export {default as Thunderstorm} from "./thunderstorm"
-export {default as Train} from "./train"
-export {default as Waves} from "./waves"
-export {default as Waterfall} from "./waterfall"
-
 export default function SVGWrapper(props: React.SVGProps<SVGElement>){
      return (
           <svg

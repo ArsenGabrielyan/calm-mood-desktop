@@ -1,12 +1,13 @@
 "use client";
 import { ISounds } from "@/lib/types";
 import { Slider } from "@/components/ui/slider";
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { Volume, Volume1, Volume2, VolumeOff } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useSound } from "@/context/sounds";
 import { Spinner } from "./ui/spinner";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "./ui/skeleton";
 
 interface SoundCardProps {
      data: ISounds;
@@ -42,12 +43,14 @@ export default function SoundCard({ data }: SoundCardProps) {
                     {state.loading && (
                          <Spinner className="absolute top-1/2 left-1/2 -translate-1/2" />
                     )}
-                    <Icon
-                         className={cn(
-                         state.loading ? "fill-primary/25" : "fill-primary",
-                              "size-[85px]"
-                         )}
-                    />
+                    <Suspense fallback={<Skeleton className="size-[85px]"/>}>
+                         <Icon
+                              className={cn(
+                              state.loading ? "fill-primary/25" : "fill-primary",
+                                   "size-[85px]"
+                              )}
+                         />
+                    </Suspense>
                </div>
                <div className="w-full md:w-fit flex-2 flex flex-col items-center justify-between gap-4">
                     <h2 className="text-2xl xs:text-3xl sm:text-2xl font-semibold text-primary text-center font-sans">

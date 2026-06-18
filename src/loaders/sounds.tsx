@@ -3,7 +3,7 @@ import WindowWrapperLoader from "./window";
 import { Skeleton } from "@/components/ui/skeleton";
 import VolumeSliderLoader from "./volume-slider";
 
-function SoundCardLoader(){
+export function SoundCardLoader(){
      return (
           <div className="w-full flex justify-between items-center flex-wrap flex-col md:flex-row gap-4 bg-card/40 backdrop-blur-sm text-card-foreground py-4 px-3 lg:max-w-xs rounded-md border shadow-xs">
                <Skeleton className="size-[85px]"/>

@@ -1,14 +1,10 @@
-import { Code, Grid2X2Plus, Info, MessageCircleWarning } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { SiGithub } from "react-icons/si"
 import { Copy, Minus, Square, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import { useState, useEffect, useMemo } from "react";
-import { useTranslation } from "react-i18next";
-import { useTheme } from "../../context/theme-provider";
-import { openUrl } from "@tauri-apps/plugin-opener"
-import { Link } from "react-router";
+import { useState, useEffect, useMemo, Suspense, lazy } from "react";
+import { Skeleton } from "../ui/skeleton";
+
+const LogoDropdown = lazy(()=>import("./logo-dropdown"))
 
 interface TitleBarProps{
      title?: string,
@@ -36,43 +32,11 @@ export default function TitleBar({title}: TitleBarProps){
                if (unlisten) unlisten();
           };
      }, [appWindow])
-     const {t} = useTranslation()
-     const {resolvedTheme} = useTheme()
-     const appIcon = useMemo(()=>resolvedTheme==="dark" ? "/logo-dark-aero.png" : "/logo-aero.png",[resolvedTheme])
      return (
           <div className="flex items-center justify-between gap-2 bg-linear-to-b from-secondary to-transparent text-foreground pl-2 fixed top-0 left-0 z-30 w-full h-10 backdrop-blur-xs">
-               <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                         <img src={appIcon} alt={t("appName")} width={30} height={30} className="select-none rounded-xs cursor-pointer"/> 
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-full min-w-32 bg-popover/60 backdrop-blur-sm border-0 shadow-xs">
-                         <DropdownMenuLabel>{t("appName")}</DropdownMenuLabel>
-                         <DropdownMenuSeparator/>
-                         <DropdownMenuItem asChild>
-                              <Link to="/about">
-                                   <Info className="text-muted-foreground opacity-70"/>
-                                   {t("dropdown.about")}
-                              </Link>
-                         </DropdownMenuItem>
-                         <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop")}>
-                              <SiGithub className="text-muted-foreground opacity-70"/>
-                              {t("dropdown.github-link")}
-                         </DropdownMenuItem>
-                         <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop/blob/main/CONTRIBUTING.md")}>
-                              <Code className="text-muted-foreground opacity-70"/>
-                              {t("dropdown.contribute")}
-                         </DropdownMenuItem>
-                         <DropdownMenuSeparator/>
-                         <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop/issues/new?assignees=&labels=&template=bug_report.md&title=")}>
-                              <MessageCircleWarning className="text-muted-foreground opacity-70"/>
-                              {t("dropdown.bug-report")}
-                         </DropdownMenuItem>
-                         <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop/issues/new?assignees=&labels=&template=feature_request.md&title=")}>
-                              <Grid2X2Plus className="text-muted-foreground opacity-70"/>
-                              {t("dropdown.feature-request")}
-                         </DropdownMenuItem>
-                    </DropdownMenuContent>
-               </DropdownMenu>
+               <Suspense fallback={<Skeleton className="size-[30px]"/>}>
+                    <LogoDropdown/>
+               </Suspense>
                <div className="flex-1 h-full flex items-center ml-1 select-none text-xs sm:text-sm md:text-base">
                     <div data-tauri-drag-region className="w-full h-full flex items-center">
                          {title}
