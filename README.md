@@ -81,11 +81,6 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 - [![Rust][rust-shield]][rust-url]
 - [![React Router][react-router-shield]][react-router-url]
 
-### Planned Improvements
-#### v0.4.0 (First Stable Public Version)
-- [X] Updater support
-- [X] About Page
-
 ### Download
 You can find the latest stable version of Calm Mood Desktop right here
 
