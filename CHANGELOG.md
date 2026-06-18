@@ -4,7 +4,7 @@ All notable changes of Calm Mood Desktop will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
-## [0.4.0] - Unreleased
+## [0.4.0] - 2026-06-18
 ### Added
 - Skeleton loading on Icons and Logo Dropdown
 - About Page Content with 3 links
@@ -62,6 +62,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Header Image
   - Installer Icon
 
+[0.4.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.0
 [0.3.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.3.0
 [0.2.1]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.2.1
 [0.2.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.2.0
