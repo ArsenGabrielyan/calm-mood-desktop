@@ -1,6 +1,6 @@
 import Logo from "@/components/logo";
 import WindowWrapper from "@/components/window";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {getTauriVersion, getVersion} from "@tauri-apps/api/app"
 import { Skeleton } from "@/components/ui/skeleton";
@@ -27,6 +27,7 @@ export default function AboutContent(){
           fetchVersion()
      },[])
      const year = new Date().getFullYear()
+     const translatedBy = useMemo(()=>t("translated-by"),[t])
      return (
           <WindowWrapper title={t("title")} className="space-y-1">
                <div className="bg-card/40 backdrop-blur-sm text-card-foreground border shadow-xs rounded-md p-4 flex justify-center items-center flex-col gap-2 max-w-[400px]">
@@ -42,6 +43,9 @@ export default function AboutContent(){
                          <p className="text-sm text-muted-foreground">Tauri v{tauriVersion}</p>
                     ) : (
                          <Skeleton className="h-4 w-1/3"/>
+                    )}
+                    {translatedBy && (
+                         <p className="text-sm">{translatedBy}</p>
                     )}
                </div>
                <div className="w-full max-w-[400px] flex items-center justify-center flex-wrap">
