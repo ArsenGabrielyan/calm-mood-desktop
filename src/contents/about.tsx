@@ -1,12 +1,20 @@
 import Logo from "@/components/logo";
 import WindowWrapper from "@/components/window";
-import { useEffect, useMemo, useState } from "react";
+import { cache, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {getTauriVersion, getVersion} from "@tauri-apps/api/app"
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Globe, Grid2X2Plus, MessageCircleWarning } from "lucide-react";
+
+const getVersions = cache(async() => {
+     const [app,tauri] = await Promise.all([
+          getVersion(),
+          getTauriVersion()
+     ])
+     return {app, tauri}
+})
 
 export default function AboutContent(){
      const {t} = useTranslation("about");
@@ -15,10 +23,7 @@ export default function AboutContent(){
      const [tauriVersion, setTauriVersion] = useState<string|null>(()=>localStorage.getItem("calm-mood-tauri-version"))
      useEffect(()=>{
           const fetchVersion = async() => {
-               const [app,tauri] = await Promise.all([
-                    getVersion(),
-                    getTauriVersion()
-               ])
+               const {app, tauri} = await getVersions()
                setVersion(app);
                localStorage.setItem("calm-mood-version",app)
                setTauriVersion(tauri)

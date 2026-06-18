@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import WindowWrapper from "@/components/window";
 import { cn, getErrorMessage } from "@/lib/utils";
-import { getVersion } from "@tauri-apps/api/app";
-import { invoke } from "@tauri-apps/api/core";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { RotateCcw, RotateCw, ScrollText } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
@@ -30,26 +28,12 @@ export default function UpdaterContent(){
           startChecking(async()=>{
                try {
                     const update = await check();
-                    if(update){
-                         await invoke("append_updater_needed_log")
-                         setUpdaterState({
-                              status: UpdaterStatus.NeedsUpdate,
-                         })
-                    } else {
-                         await invoke("append_updater_updated_log",{
-                              version: await getVersion()
-                         })
-                         setUpdaterState({
-                              status: UpdaterStatus.Updated,
-                         })
-                    }
+                    setUpdaterState({
+                         status: update ? UpdaterStatus.NeedsUpdate : UpdaterStatus.Updated,
+                    })
                } catch (err){
                     toast.error(t("failed-check.main"),{
                          description: getErrorMessage(err)
-                    })
-                    await invoke("append_updater_error",{
-                         error: getErrorMessage(err),
-                         errorType: "check-error"
                     })
                     setUpdaterState({
                          status: UpdaterStatus.CheckError,
@@ -72,12 +56,10 @@ export default function UpdaterContent(){
                          await update.downloadAndInstall((event) => {
                               switch (event.event) {
                                    case 'Started':
-                                        invoke("append_updater_start_log").then(()=>{
-                                             contentLength = event.data.contentLength || 0;
-                                             setUpdaterState({
-                                                  total: contentLength,
-                                                  downloaded
-                                             })
+                                        contentLength = event.data.contentLength || 0;
+                                        setUpdaterState({
+                                             total: contentLength,
+                                             downloaded
                                         })
                                         break;
                                    case 'Progress':
@@ -88,10 +70,8 @@ export default function UpdaterContent(){
                                         })
                                         break;
                                    case 'Finished':
-                                        invoke("append_updater_finish_log").then(()=>{
-                                             setUpdaterState({
-                                                  status: UpdaterStatus.Completed
-                                             })
+                                        setUpdaterState({
+                                             status: UpdaterStatus.Completed
                                         })
                                         break;
                               }
@@ -100,10 +80,6 @@ export default function UpdaterContent(){
                } catch (err){
                     toast.error(t("failed-update.main"),{
                          description: getErrorMessage(err)
-                    })
-                    await invoke("append_updater_error",{
-                         error: getErrorMessage(err),
-                         errorType: "update-error"
                     })
                     setUpdaterState({
                          status: UpdaterStatus.UpdateError,
