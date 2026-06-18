@@ -4,6 +4,7 @@ import breathingExercise from "@i18n/hy/breathing-exercise.json";
 import pomodoro from "@i18n/hy/pomodoro.json";
 import sounds from "@i18n/hy/sounds.json";
 import about from "@i18n/hy/about.json";
+import update from "@i18n/hy/update.json"
 
 import { LangCode } from "../i18n/config";
 
@@ -16,6 +17,7 @@ declare module "i18next" {
                pomodoro: typeof pomodoro;
                "breathing-exercise": typeof breathingExercise
                about: typeof about
+               update: typeof update
           };
      }
 }

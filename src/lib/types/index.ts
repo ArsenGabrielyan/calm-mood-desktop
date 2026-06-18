@@ -11,3 +11,19 @@ export enum NavLinks{
       BreathingExercise = 'exercise',
       Pomodoro = 'pomodoro'
 }
+export enum UpdaterStatus {
+     Checking = "checking",
+     Updating = "updating",
+     NeedsUpdate = "needs-update",
+     Updated = "updated",
+     CheckError = "failed-check",
+     Completed = "completed",
+     UpdateError = "failed-update"
+}
+export interface IUpdaterState{
+     status: UpdaterStatus,
+     newVersion: string | null,
+     patchDate: Date | null,
+     downloaded: number,
+     total: number
+}

@@ -83,7 +83,7 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 
 ### Planned Improvements
 #### v0.4.0 (First Stable Public Version)
-- [ ] Updater support
+- [X] Updater support
 - [X] About Page
 
 ### Download

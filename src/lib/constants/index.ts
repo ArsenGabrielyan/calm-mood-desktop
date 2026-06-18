@@ -1,5 +1,6 @@
 import { Clock12, Clock2, Clock4, Clock6 } from "lucide-react";
 import { PomodoroState } from "../types/pomodoro";
+import { IUpdaterState, UpdaterStatus } from "../types";
 
 export const PRESETS = [
   { id: "calm", Icon: Clock2, seconds: 12 },
@@ -16,4 +17,11 @@ export const INITIAL_POMODORO_STATE: PomodoroState = {
   currTime: 0,
   isOpen: false,
   isStarted: false
+}
+export const INITIAL_UPDATER_STATE: IUpdaterState = {
+  status: UpdaterStatus.Checking,
+  newVersion: null,
+  patchDate: null,
+  downloaded: 0,
+  total: 0
 }

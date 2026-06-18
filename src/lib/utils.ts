@@ -26,3 +26,9 @@ export function preloadAudio(...audioFiles: string[]) {
     audio.load();
   });
 }
+
+export function getErrorMessage(err: unknown){
+  const stringErr = String(err);
+  const fallback = stringErr.trim()==="" ? "Something went wrong" : stringErr
+  return err instanceof Error ? err.message : String(err) ?? fallback
+}

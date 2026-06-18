@@ -10,11 +10,11 @@
   "dropdown": {
     "github-link": "View on GitHub",
     "about": "About the app",
-    "docs": "Documentation",
     "contribute": "Contribute",
     "bug-report": "Report a bug",
     "feature-request": "Request a feature",
-    "translate": "Add Your Language"
+    "website": "Website",
+    "check-updates": "Check for updates"
   },
   "allRightsReserved": "All Rights Reserved",
   "buttons": {

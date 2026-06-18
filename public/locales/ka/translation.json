@@ -10,11 +10,11 @@
   "dropdown": {
     "github-link": "ნახვა GitHub-ზე",
     "about": "ამ აპლიკაციის შესახებ",
-    "docs": "სახელმძღვანელო",
     "contribute": "წვლილის შეტანა",
     "bug-report": "შეცდომის შესახებ შეტყობინება",
     "feature-request": "ფუნქციის მოთხოვნა",
-    "translate": "დაამატეთ თქვენი ენა"
+    "website": "ვებსაიტი",
+    "check-updates": "განახლებების შემოწმება"
   },
   "allRightsReserved": "ყველა უფლება დაცულია",
   "buttons": {

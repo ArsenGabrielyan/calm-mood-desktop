@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - Skeleton loading on Icons and Logo Dropdown
 - About Page Content with 3 links
+- Updater Support
 ### Improved
 - Sound Card UI
 - Sounds page loader

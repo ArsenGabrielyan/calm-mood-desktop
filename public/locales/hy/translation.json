@@ -10,11 +10,11 @@
   "dropdown": {
     "github-link": "Դիտել GitHub-ում",
     "about": "Այս հավելվածի մասին",
-    "docs": "Ձեռնարկ",
     "contribute": "Մասնակցեք",
     "bug-report": "Հաղորդել սխալի մասին",
     "feature-request": "Խնդրել նոր ֆունկցիա",
-    "translate": "Ավելացրեք ձեր լեզուն"
+    "website": "Վեբ Կայք",
+    "check-updates": "Ստուգել թարմացումները"
   },
   "allRightsReserved": "Բոլոր իրավունքները պաշտպանված են",
   "buttons": {

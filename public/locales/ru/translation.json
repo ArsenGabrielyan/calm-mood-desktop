@@ -10,11 +10,11 @@
   "dropdown": {
     "github-link": "Посмотреть на GitHub",
     "about": "Об этом приложении",
-    "docs": "Руководство",
     "contribute": "Внести свой вклад",
     "bug-report": "Сообщить об ошибке",
     "feature-request": "Запросить функцию",
-    "translate": "Добавить свой язык"
+    "website": "Веб сайт",
+    "check-updates": "Проверьте наличие обновлений"
   },
   "allRightsReserved": "Все права защищены",
   "buttons": {

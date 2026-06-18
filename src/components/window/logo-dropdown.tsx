@@ -1,4 +1,4 @@
-import { Code, Grid2X2Plus, Info, MessageCircleWarning } from "lucide-react"
+import { Code, Globe, Grid2X2Plus, Info, MessageCircleWarning, RotateCcw } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { SiGithub } from "react-icons/si"
 import { useMemo } from "react";
@@ -25,15 +25,25 @@ export default function LogoDropdown(){
                               {t("dropdown.about")}
                          </Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                         <Link to="/update">
+                              <RotateCcw className="text-muted-foreground opacity-70"/>
+                              {t("dropdown.check-updates")}
+                         </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={()=>openUrl("https://calm-mood.vercel.app")}>
+                         <Globe className="text-muted-foreground opacity-70"/>
+                         {t("dropdown.website")}
+                    </DropdownMenuItem>
                     <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop")}>
                          <SiGithub className="text-muted-foreground opacity-70"/>
                          {t("dropdown.github-link")}
                     </DropdownMenuItem>
+                    <DropdownMenuSeparator/>
                     <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop/blob/main/CONTRIBUTING.md")}>
                          <Code className="text-muted-foreground opacity-70"/>
                          {t("dropdown.contribute")}
                     </DropdownMenuItem>
-                    <DropdownMenuSeparator/>
                     <DropdownMenuItem onClick={()=>openUrl("https://github.com/ArsenGabrielyan/calm-mood-desktop/issues/new?assignees=&labels=&template=bug_report.md&title=")}>
                          <MessageCircleWarning className="text-muted-foreground opacity-70"/>
                          {t("dropdown.bug-report")}

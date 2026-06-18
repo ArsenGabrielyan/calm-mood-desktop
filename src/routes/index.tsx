@@ -6,6 +6,7 @@ const BreathingExercisePage = lazy(()=>import("../pages/exercise"))
 const SoundsPage = lazy(()=>import("../pages/sounds"))
 const PomodoroPage = lazy(()=>import("../pages/pomodoro"))
 const AboutPage = lazy(()=>import("../pages/about"))
+const UpdatesPage = lazy(()=>import("../pages/update"))
 
 export const router = createBrowserRouter([
      {
@@ -14,7 +15,8 @@ export const router = createBrowserRouter([
                { path: "/", element: <BreathingExercisePage/>, index: true },
                { path: "/sounds", element: <SoundsPage/> },
                { path: "/pomodoro", element: <PomodoroPage/> },
-               { path: "/about", element: <AboutPage/> }
+               { path: "/about", element: <AboutPage/> },
+               { path: "/update", element: <UpdatesPage/> }
           ]
      }
 ]);
