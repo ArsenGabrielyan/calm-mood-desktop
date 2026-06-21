@@ -1,10 +1,12 @@
 {
      "title": "About the \"Calm Mood\" app",
      "version": "Version {{version}}",
+     "tauri-version": "Tauri Version: v{{version}}",
      "bug-report": "Report a bug",
      "feature-request": "Request a feature",
      "copyright": "Copyright",
      "about-text": "This app helps calm the human nervous system, creating a spiritually peaceful environment",
      "website": "Website",
-     "translated-by": "Translated by Arsen G."
+     "translated-by": "Translated by Arsen G.",
+     "identifier": "Identifier: {{value}}"
 }

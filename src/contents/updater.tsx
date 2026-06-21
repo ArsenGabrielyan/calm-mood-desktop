@@ -51,7 +51,7 @@ export default function UpdaterContent(){
                try {
                     const update = await check();
                     if(update){
-                         ["calm-mood-tauri-version","calm-mood-version"].map(val=>localStorage.removeItem(val))
+                         ["calm-mood-details"].map(val=>localStorage.removeItem(val))
                          let downloaded = 0, contentLength = 0;
                          await update.downloadAndInstall((event) => {
                               switch (event.event) {

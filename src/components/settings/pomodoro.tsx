@@ -1,19 +1,19 @@
 "use client"
 import { useForm, Controller } from "react-hook-form"
 import {zodResolver} from "@hookform/resolvers/zod"
-import { PomodoroPresetId, PomodoroType } from "@/lib/types/pomodoro";
+import { PomodoroType } from "@/lib/types/pomodoro";
 import { getPomodoroSchema } from "@/lib/schemas";
-import { Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldSeparator, FieldSet, FieldTitle } from "../ui/field";
+import { Field, FieldError, FieldGroup, FieldLabel, FieldSeparator, FieldSet } from "../ui/field";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { usePomodoro } from "@/context/pomodoro";
 import { POMODORO_PRESETS } from "@/lib/constants/maps";
-import {  } from "radix-ui";
-import { RadioGroupItem, RadioGroup } from "../ui/radio-group";
-import { useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { lazy, Suspense, useEffect } from "react";
+import { PomodoroPresetsLoader } from "@/loaders/field";
+
+const PomodoroPresets = lazy(()=>import("../presets/pomodoro"));
 
 interface Props{
      setOpen: (open: boolean) => void,
@@ -108,8 +108,6 @@ export default function PomodoroSettings({setOpen}: Props){
                                         </Field>
                                    )}
                               />
-                         </div>
-                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <Controller
                                    name="shortBreak"
                                    control={form.control}
@@ -157,28 +155,9 @@ export default function PomodoroSettings({setOpen}: Props){
                          </div>
                     </FieldGroup>
                     <FieldSeparator/>
-                    <Field>
-                         <FieldLabel>{t("presets.title")}</FieldLabel>
-                         <RadioGroup className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3" value={selectedPreset ?? ""} onValueChange={(val) => setSelectedPreset(val as PomodoroPresetId)}>
-                              {Object.entries(POMODORO_PRESETS).map(([id,value])=>(
-                                   <FieldLabel key={id} htmlFor={id} className={cn(
-                                        "transition",
-                                        selectedPreset === id && "border-primary bg-primary/10"
-                                   )}>
-                                        <Field orientation="horizontal">
-                                             <FieldContent>
-                                                  <FieldTitle>{t(`presets.${id as PomodoroPresetId}`)}</FieldTitle>
-                                                  <FieldDescription>{t("presets.desc-format",{
-                                                       count: value.focus,
-                                                       loops: value.loops
-                                                  })}</FieldDescription>
-                                             </FieldContent>
-                                             <RadioGroupItem value={id} id={id}/>
-                                        </Field>
-                                   </FieldLabel>
-                              ))}
-                         </RadioGroup>
-                    </Field>
+                    <Suspense fallback={<PomodoroPresetsLoader/>}>
+                         <PomodoroPresets/>
+                    </Suspense>
                     <Field orientation="horizontal">
                          <Button type="submit">
                               {t("start")}

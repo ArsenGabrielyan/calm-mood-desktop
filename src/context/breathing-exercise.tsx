@@ -2,7 +2,6 @@ import { EXERCISE_INTERVAL_TIME } from "@/lib/constants";
 import { BREATHING_PATTERNS, PHASE_TO_CIRCLE } from "@/lib/constants/maps";
 import { BreathingExerciseState, BreathingPhase, BreathingPatternId, CirclePhase } from "@/lib/types/breathing-exercise";
 import { preloadAudio } from "@/lib/utils";
-import { VolumeOff, Volume, Volume1, Volume2 } from "lucide-react";
 import { createContext, useContext, useState, useRef, useMemo, useEffect } from "react";
 interface BreathingExerciseContextValues {
      state: BreathingExerciseState
@@ -10,7 +9,6 @@ interface BreathingExerciseContextValues {
      PHASE_DURATION: Record<BreathingPhase, number>
      growTime: number
      holdTime: number
-     volumeIcon: React.ReactNode
      applySettings: (values: {
           exerciseTime: string
           pattern: BreathingPatternId
@@ -41,8 +39,6 @@ export default function BreathingExerciseProvider({children}: {children: React.R
           hold: holdTime,
           exhale: growTime,
      };
-
-     const volumeIcon = useMemo(()=>state.volume<5 ? <VolumeOff/> : state.volume<10 ? <Volume/> : state.volume<60 ? <Volume1/> : <Volume2/>,[state.volume])
 
      const SOUND_BY_PHASE: Record<CirclePhase, string> = {
           growing: Math.round(growTime/1000) >= 7 ? "/sounds/breathe-in-long.mp3" : "/sounds/breathe-in.mp3",
@@ -113,7 +109,6 @@ export default function BreathingExerciseProvider({children}: {children: React.R
           PHASE_DURATION,
           growTime,
           holdTime,
-          volumeIcon,
           applySettings,
      }), [state, growTime, holdTime]);
 

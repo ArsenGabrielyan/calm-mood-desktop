@@ -4,10 +4,12 @@ import { Link, useLocation } from "react-router";
 import { ModeToggle } from "../mode-toggler";
 import { useTranslation } from "react-i18next";
 import { useSound } from "@/context/sounds";
-import { useMemo } from "react";
+import { lazy, Suspense, useMemo } from "react";
 import { cn } from "@/lib/utils";
-import LanguageSwitcher from "@/i18n/languages";
-import SettingsButton from "../settings";
+import { Skeleton } from "../ui/skeleton";
+
+const SettingsButton = lazy(()=>import("../settings"));
+const LanguageSwitcher = lazy(()=>import("@/i18n/languages"))
 
 interface ActionButtonsProps{
      variant?: "breathing-exercise" | "pomodoro"
@@ -60,9 +62,15 @@ export default function ActionButtons({variant}: ActionButtonsProps){
                     </div>
                )}
                <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl flex items-center justify-center">
-                    <SettingsButton variant={variant}/>
+                    {variant && (
+                         <Suspense fallback={<Skeleton className="size-9 rounded-l-4xl"/>}>
+                              <SettingsButton variant={variant}/>
+                         </Suspense>
+                    )}
                     <ModeToggle noVariant={!variant}/>
-                    <LanguageSwitcher/>
+                    <Suspense fallback={<Skeleton className="w-15 h-9 rounded-r-4xl"/>}>
+                         <LanguageSwitcher/>
+                    </Suspense>
                </div>
           </div>
      )

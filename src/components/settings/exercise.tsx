@@ -1,17 +1,18 @@
-import { BreathingExerciseType, BreathingPatternId } from "@/lib/types/breathing-exercise"
+import { BreathingExerciseType } from "@/lib/types/breathing-exercise"
 import { useForm, Controller } from "react-hook-form"
 import {zodResolver} from "@hookform/resolvers/zod"
 import { getBreathingExerciseSchema } from "@/lib/schemas"
-import { Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldSeparator, FieldSet, FieldTitle } from "../ui/field";
+import { Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldSeparator, FieldSet } from "../ui/field";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button"
-import { useMemo } from "react"
-import { BREATHING_PATTERNS } from "@/lib/constants/maps";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { lazy, Suspense, useMemo } from "react"
 import { PRESETS } from "@/lib/constants";
 import { useTranslation } from "react-i18next";
 import { useBreathingExercise } from "@/context/breathing-exercise";
 import { toast } from "sonner";
+import { ExercisePresetsLoader } from "@/loaders/field";
+
+const ExercisePresets = lazy(()=>import("../presets/exercise"));
 
 interface Props{
      setOpen: (open: boolean) => void,
@@ -82,30 +83,9 @@ export default function ExerciseSettings({setOpen}: Props){
                               </div>
                          </Field>
                          <FieldSeparator/>
-                         <Field>
-                              <FieldLabel>{t("settings.type")}</FieldLabel>
-                              <Controller
-                                   control={form.control}
-                                   name="pattern"
-                                   render={({field, fieldState})=>(
-                                        <RadioGroup onValueChange={field.onChange} defaultValue={field.value}>
-                                             {Object.keys(BREATHING_PATTERNS).map(id=>(
-                                                  <FieldLabel key={id} htmlFor={id}>
-                                                       <Field orientation="horizontal">
-                                                            <FieldContent>
-                                                                 <FieldTitle>{t(`patterns.${id as BreathingPatternId}`)}</FieldTitle>
-                                                            </FieldContent>
-                                                            <RadioGroupItem value={id} id={id} aria-invalid={fieldState.invalid}/>
-                                                       </Field>
-                                                  </FieldLabel>
-                                             ))}
-                                             {fieldState.invalid && (
-                                                  <FieldError errors={[fieldState.error]} />
-                                             )}
-                                        </RadioGroup>
-                                   )}
-                              />
-                         </Field>
+                         <Suspense fallback={<ExercisePresetsLoader/>}>
+                              <ExercisePresets form={form}/>
+                         </Suspense>
                     </FieldGroup>
                     <Field orientation="horizontal">
                          <Button type="submit">{t("settings.apply")}</Button>

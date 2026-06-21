@@ -1,13 +1,14 @@
 "use client";
 import { ISounds } from "@/lib/types";
-import { Slider } from "@/components/ui/slider";
-import { Suspense, useMemo } from "react";
-import { Volume, Volume1, Volume2, VolumeOff } from "lucide-react";
+import { lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { useSound } from "@/context/sounds";
 import { Spinner } from "./ui/spinner";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "./ui/skeleton";
+import VolumeSliderLoader from "@/loaders/volume-slider";
+
+const VolumeSlider = lazy(()=>import("./volume-slider"));
 
 interface SoundCardProps {
      data: ISounds;
@@ -22,13 +23,6 @@ export default function SoundCard({ data }: SoundCardProps) {
           loaded: false,
           loading: false,
      };
-
-     const volumeIcon = useMemo(() => {
-          if (state.volume < 5) return <VolumeOff />;
-          if (state.volume < 10) return <Volume />;
-          if (state.volume < 60) return <Volume1 />;
-          return <Volume2 />;
-     }, [state.volume]);
 
      const handleVolumeChange = (vol: number) => {
           if (!state.loaded && !state.loading && vol > 0) {
@@ -56,15 +50,12 @@ export default function SoundCard({ data }: SoundCardProps) {
                     <h2 className="text-2xl xs:text-3xl sm:text-2xl font-semibold text-primary text-center font-sans">
                          {t(`sounds.${id}`)}
                     </h2>
-                    <div className="flex items-center gap-2 w-full">
-                         {volumeIcon}
-                         <Slider
-                              value={[state.volume]}
-                              min={0}
-                              max={100}
-                              onValueChange={([vol]) => handleVolumeChange(vol)}
+                    <Suspense fallback={<VolumeSliderLoader/>}>
+                         <VolumeSlider
+                              value={state.volume}
+                              onChange={handleVolumeChange}
                          />
-                    </div>
+                    </Suspense>
                </div>
           </div>
      );

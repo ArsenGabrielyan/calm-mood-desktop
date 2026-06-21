@@ -2,9 +2,11 @@ import { Cog } from "lucide-react";
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
 import PopupComponent from "./popup";
-import ExerciseSettings from "./exercise";
-import { useState } from "react";
-import PomodoroSettings from "./pomodoro";
+import { lazy, Suspense, useState } from "react";
+import { ExerciseSettingsLoader, PomodoroSettingsLoader } from "@/loaders/settings";
+
+const ExerciseSettings = lazy(()=>import("./exercise"))
+const PomodoroSettings = lazy(()=>import("./pomodoro"))
 
 interface SettingsButtonProps{
      variant?: "breathing-exercise" | "pomodoro"
@@ -27,7 +29,9 @@ export default function SettingsButton({variant}: SettingsButtonProps){
                title={t("buttons.settings")}
                open={open} onOpen={setOpen}
           >
-               <ExerciseSettings setOpen={setOpen}/>
+               <Suspense fallback={<ExerciseSettingsLoader/>}>
+                    <ExerciseSettings setOpen={setOpen}/>
+               </Suspense>
           </PopupComponent>
      )
      if(variant==="pomodoro") return (
@@ -36,7 +40,9 @@ export default function SettingsButton({variant}: SettingsButtonProps){
                title={t("buttons.settings")}
                open={open} onOpen={setOpen}
           >
-               <PomodoroSettings setOpen={setOpen}/>
+               <Suspense fallback={<PomodoroSettingsLoader/>}>
+                    <PomodoroSettings setOpen={setOpen}/>
+               </Suspense>
           </PopupComponent>
      )
      return null

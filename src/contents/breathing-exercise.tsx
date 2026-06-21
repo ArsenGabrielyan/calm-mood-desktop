@@ -1,13 +1,15 @@
 import WindowWrapper from "@/components/window";
 import { cn } from "@/lib/utils";
-import { Slider } from "@/components/ui/slider";
-import { useMemo } from "react";
+import { lazy, Suspense, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useBreathingExercise } from "@/context/breathing-exercise";
+import VolumeSliderLoader from "@/loaders/volume-slider";
+
+const VolumeSlider = lazy(()=>import("@/components/volume-slider"));
 
 export default function BreathingExerciseContent(){
      const { t } = useTranslation("breathing-exercise");
-     const { state, setState, growTime, holdTime, volumeIcon } = useBreathingExercise()
+     const { state, setState, growTime, holdTime } = useBreathingExercise()
      const phaseText = useMemo(() => {
           if (state.text === "inhale") return t("breatheIn");
           if (state.text === "hold") return t("hold");
@@ -27,15 +29,12 @@ export default function BreathingExerciseContent(){
                          }}/>
                     </div>
                     <p className="font-heading text-3xl sm:text-4xl font-semibold text-primary" aria-live="polite">{phaseText}</p>
-                    <div className="flex items-center gap-2 w-full">
-                         {volumeIcon}
-                         <Slider
-                              value={[state.volume]}
-                              min={0}
-                              max={100}
-                              onValueChange={([newVolume]) => setState({ volume: newVolume })}
+                    <Suspense fallback={<VolumeSliderLoader/>}>
+                         <VolumeSlider
+                              value={state.volume}
+                              onChange={newVolume=>setState({ volume: newVolume })}
                          />
-                    </div>
+                    </Suspense>
                </div>
           </WindowWrapper>
      )

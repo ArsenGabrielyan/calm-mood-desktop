@@ -4,6 +4,26 @@ All notable changes of Calm Mood Desktop will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+
+## [0.4.1] - 2026-06-21
+### Added
+- Identifier info in About page
+- Skeleton Loader Support
+  - Settings Button
+  - Breathing Exercise Settings
+  - Pomodoro Settings
+  - Languages list
+  - Presets settings
+  - Window Controls
+  - Volume Slider
+### Improved
+- **Sounds List** - Optimized Skeleton loader
+- **About Page** - Updated Skeleton loader
+
+[0.4.1]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.0
+
+---
+
 ## [0.4.0] - 2026-06-18
 > [!NOTE]
 > This is the first stable version of Calm Mood Desktop
@@ -14,6 +34,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Improved
 - Sound Card UI
 - Sounds page loader
+
+[0.4.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.0
+
+---
 
 ## [0.3.0] - 2026-06-16
 ### Added
@@ -28,6 +52,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - **Logo Dropdown** - Added links to make dropdown items work
 - **Calm Mood UI** - Improved UI/UX Responsibility
 
+[0.3.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.3.0
+
+---
+
 ## [0.2.1] - 2026-06-15
 ### Added
 - New Scrollbar Design
@@ -37,6 +65,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Fonts on some parts
 ### Improved
 - **Sound Assets** - Trimmed from **~77MB** to **72.8MB**
+
+[0.2.1]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.2.1
+
+---
 
 ## [0.2.0] - 2026-06-11
 ### Added
@@ -53,6 +85,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Improved
 - Window Wrapper - Added more buttons with similar design
 
+[0.2.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.2.0
+
+---
+
 ## [0.1.0] - 2026-06-10
 > [!IMPORTANT]
 > The first pre-release is mostly focused on the wrapper design meaning that it won't work or some parts might work
@@ -64,8 +100,4 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Header Image
   - Installer Icon
 
-[0.4.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.0
-[0.3.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.3.0
-[0.2.1]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.2.1
-[0.2.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.2.0
 [0.1.0]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.1.0

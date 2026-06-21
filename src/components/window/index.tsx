@@ -2,6 +2,7 @@ import { cn, getDailyBackground } from "@/lib/utils";
 import { lazy, Suspense } from "react";
 import TitlebarLoader from "@/loaders/titlebar";
 import ActionButtonsLoader from "@/loaders/actions-button";
+import { Toaster } from "sonner";
 
 const TitleBar = lazy(()=>import("./titlebar"))
 const ActionButtons = lazy(()=>import("./actions"))
@@ -34,6 +35,10 @@ export default function WindowWrapper({
                <Suspense fallback={<ActionButtonsLoader noVariant={!variant}/>}>
                     <ActionButtons variant={variant}/>
                </Suspense>
+               <Toaster
+                    richColors
+                    position="bottom-center"
+               />
           </main>
      )
 }
