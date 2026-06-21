@@ -20,7 +20,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - **Sounds List** - Optimized Skeleton loader
 - **About Page** - Updated Skeleton loader
 
-[0.4.1]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.0
+[0.4.1]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.1
 
 ---
 
