@@ -84,6 +84,7 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 ### Planned improvements
 - [ ] Fallback language icon
 - [ ] Refactor, Optimize, and Code-splitting if needed
+  - [ ] Lazy Loading some internal components like a Breathing exercise circle or a Pomodoro timer component
 
 ### Download
 You can find the latest stable version of Calm Mood Desktop right here
