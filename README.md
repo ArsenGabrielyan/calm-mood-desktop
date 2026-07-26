@@ -82,7 +82,7 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 - [![React Router][react-router-shield]][react-router-url]
 
 ### Planned improvements
-- [ ] Fallback language icon
+- [X] Fallback language icon
 - [ ] Refactor, Optimize, and Code-splitting if needed
   - [ ] Lazy Loading some internal components like a Breathing exercise circle or a Pomodoro timer component
 

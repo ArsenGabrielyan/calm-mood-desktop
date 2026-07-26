@@ -1,5 +1,4 @@
 "use client"
-import { CircleFlag } from 'react-circle-flags'
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { languages } from "./config";
 import { LangCode } from "./types";
@@ -14,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 import i18next, { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { FlagIcon } from '@/components/lang-icon';
 
 interface LangSwitcherSelectProps{
      children: React.ReactNode,
@@ -30,7 +30,7 @@ function LangSwitcherSelect({children,defaultValue, open, onOpenChange, disabled
                {lang && (
                     <DropdownMenuTrigger disabled={disabled} className={cn("font-sans! select-none",disabled && "pointer-events-none opacity-50")} asChild>
                          <Button className="shadow-xs text-primary rounded-r-4xl" variant="ghost" title={label}>
-                              <CircleFlag countryCode={lang.countryCode} className="size-4" title={lang.language}/>
+                              <FlagIcon countryCode={lang.countryCode} title={lang.language}/>
                               <ChevronDown className={cn(open && "rotate-180","transition-all")}/>
                          </Button>
                     </DropdownMenuTrigger>
@@ -61,7 +61,7 @@ export default function LanguageSwitcher(){
           <LangSwitcherSelect open={isOpen} onOpenChange={setIsOpen} disabled={isPending} defaultValue={lang} label={t("langSwitcherLabel")}>
                {languages.map(lang=>(
                     <DropdownMenuItem key={lang.code} onClick={()=>handleChangeLang(lang.code)}>
-                         <CircleFlag countryCode={lang.countryCode} className="size-4"/>
+                         <FlagIcon countryCode={lang.countryCode} />
                          {lang.language}
                     </DropdownMenuItem>
                ))}
