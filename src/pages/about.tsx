@@ -1,4 +1,4 @@
-import AboutLoader from "@/loaders/about";
+import { AboutLoader } from "@/loaders/about";
 import { lazy, Suspense } from "react";
 
 const AboutContent = lazy(()=>import("@/contents/about"))

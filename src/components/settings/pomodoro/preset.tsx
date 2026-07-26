@@ -1,10 +1,10 @@
 "use client"
 import { PomodoroPresetId } from "@/lib/types/pomodoro";
-import { Field, FieldContent, FieldDescription, FieldLabel, FieldTitle } from "../ui/field";
+import { Field, FieldContent, FieldDescription, FieldLabel, FieldTitle } from "@/components/ui/field";
 import { useTranslation } from "react-i18next";
 import { usePomodoro } from "@/context/pomodoro";
 import { POMODORO_PRESETS } from "@/lib/constants/maps";
-import { RadioGroupItem, RadioGroup } from "../ui/radio-group";
+import { RadioGroupItem, RadioGroup } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";
 
 export default function PomodoroPresets(){

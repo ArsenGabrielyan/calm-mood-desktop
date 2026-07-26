@@ -2,7 +2,7 @@ import { cn, getDailyBackground } from "@/lib/utils";
 import { lazy, Suspense } from "react";
 import TitlebarLoader from "@/loaders/titlebar";
 import ActionButtonsLoader from "@/loaders/actions-button";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/sonner"
 
 const TitleBar = lazy(()=>import("./titlebar"))
 const ActionButtons = lazy(()=>import("./actions"))

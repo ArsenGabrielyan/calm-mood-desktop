@@ -10,8 +10,9 @@ import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { check } from "@tauri-apps/plugin-updater"
 import { relaunch } from "@tauri-apps/plugin-process"
-import { IUpdaterState, UpdaterStatus } from "@/lib/types";
+import { IUpdaterState } from "@/lib/types";
 import { INITIAL_UPDATER_STATE } from "@/lib/constants";
+import { UpdaterStatus } from "@/lib/types/enums";
 
 export default function UpdaterContent(){
      const [isChecking, startChecking] = useTransition();
@@ -95,7 +96,7 @@ export default function UpdaterContent(){
      const currProgress = useMemo(()=>(update.downloaded/update.total)*100,[update.downloaded,update.total]);
      return (
           <WindowWrapper title={t("title")}>
-               <div className="bg-card/40 backdrop-blur-sm text-card-foreground border shadow-xs rounded-md p-4 flex justify-center items-center flex-col gap-2 max-w-[400px] w-full">
+               <div className="bg-card/40 backdrop-blur-sm text-card-foreground border shadow-xs rounded-md p-4 flex justify-center items-center flex-col gap-2 max-w-100 w-full">
                     <h2 className={cn(
                          "text-xl md:text-2xl lg:text-3xl font-semibold",
                          (update.status==="failed-check" || update.status==="failed-update") && "text-destructive",

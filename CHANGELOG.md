@@ -7,6 +7,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [0.4.2] - Unreleased
 ### Improved
 - **Language Icons** - Added fallback language icon when it comes to no internet
+### New Skeleton Loaders
+- About Details
+- Custom Pomodoro Settings
+- Exercise Seconds Input
+- Pomodoro Timer
+- Breathing Circle
+- Theme Toggler
+- Other parts
 
 ## [0.4.1] - 2026-06-21
 ### Added

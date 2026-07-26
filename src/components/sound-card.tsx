@@ -13,7 +13,6 @@ const VolumeSlider = lazy(()=>import("./volume-slider"));
 interface SoundCardProps {
      data: ISounds;
 }
-
 export default function SoundCard({ data }: SoundCardProps) {
      const { id, Icon, url } = data;
      const { sounds, setVolume, loadSound } = useSound();
@@ -37,13 +36,8 @@ export default function SoundCard({ data }: SoundCardProps) {
                     {state.loading && (
                          <Spinner className="absolute top-1/2 left-1/2 -translate-1/2" />
                     )}
-                    <Suspense fallback={<Skeleton className="size-[85px]"/>}>
-                         <Icon
-                              className={cn(
-                              state.loading ? "fill-primary/25" : "fill-primary",
-                                   "size-[85px]"
-                              )}
-                         />
+                    <Suspense fallback={<Skeleton className="size-21.25"/>}>
+                         <Icon className={cn("size-21.25", state.loading ? "fill-primary/25" : "fill-primary")}/>
                     </Suspense>
                </div>
                <div className="w-full md:w-fit flex-2 flex flex-col items-center justify-between gap-4">

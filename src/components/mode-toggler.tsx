@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 interface ModeToggleProps{
   noVariant?: boolean
 }
-export function ModeToggle({noVariant = true}: ModeToggleProps) {
+export default function ModeToggle({noVariant = true}: ModeToggleProps) {
   const {resolvedTheme, setTheme} = useTheme()
   const {t} = useTranslation()
   return (

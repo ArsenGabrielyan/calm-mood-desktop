@@ -1,6 +1,7 @@
 import { Clock12, Clock2, Clock4, Clock6 } from "lucide-react";
-import { PomodoroState } from "../types/pomodoro";
-import { IUpdaterState, UpdaterStatus } from "../types";
+import { PomodoroState } from "@/lib/types/pomodoro";
+import { IUpdaterState } from "@/lib/types";
+import { UpdaterStatus } from "@/lib/types/enums";
 
 export const PRESETS = [
   { id: "calm", Icon: Clock2, seconds: 12 },

@@ -11,7 +11,7 @@ interface TitleBarProps{
 export default function TitleBar({title}: TitleBarProps){
      return (
           <div className="flex items-center justify-between gap-2 bg-linear-to-b from-secondary to-transparent text-foreground pl-2 fixed top-0 left-0 z-30 w-full h-10 backdrop-blur-xs">
-               <Suspense fallback={<Skeleton className="size-[30px]"/>}>
+               <Suspense fallback={<Skeleton className="size-7.5"/>}>
                     <LogoDropdown/>
                </Suspense>
                <div className="flex-1 h-full flex items-center ml-1 select-none text-xs sm:text-sm md:text-base">

@@ -1,8 +1,8 @@
 import { BreathingExerciseType, BreathingPatternId } from "@/lib/types/breathing-exercise"
 import { Controller, UseFormReturn } from "react-hook-form"
-import { Field, FieldContent, FieldError, FieldLabel, FieldTitle } from "../ui/field";
+import { Field, FieldContent, FieldError, FieldLabel, FieldTitle } from "../../ui/field";
 import { BREATHING_PATTERNS } from "@/lib/constants/maps";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "../../ui/radio-group";
 import { useTranslation } from "react-i18next";
 
 interface ExercisePresetsProps{

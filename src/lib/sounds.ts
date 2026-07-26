@@ -1,6 +1,5 @@
 import { lazy } from "react"
 import { ISounds } from "./types"
-import {} from "@/icons"
 
 const Birds = lazy(()=>import("@/icons/birds"))
 const Rain = lazy(()=>import("@/icons/rain"))

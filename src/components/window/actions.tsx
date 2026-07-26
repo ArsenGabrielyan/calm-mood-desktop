@@ -1,7 +1,6 @@
 import { Button } from "../ui/button";
 import { Pause, Play, Square, Timer, Waves, Wind } from "lucide-react";
 import { Link, useLocation } from "react-router";
-import { ModeToggle } from "../mode-toggler";
 import { useTranslation } from "react-i18next";
 import { useSound } from "@/context/sounds";
 import { lazy, Suspense, useMemo } from "react";
@@ -10,6 +9,7 @@ import { Skeleton } from "../ui/skeleton";
 
 const SettingsButton = lazy(()=>import("../settings"));
 const LanguageSwitcher = lazy(()=>import("@/i18n/languages"))
+const ModeToggle = lazy(()=>import("../mode-toggler"))
 
 interface ActionButtonsProps{
      variant?: "breathing-exercise" | "pomodoro"
@@ -62,13 +62,15 @@ export default function ActionButtons({variant}: ActionButtonsProps){
                     </div>
                )}
                <div className="bg-card text-card-foreground shadow-xs border-0 rounded-4xl flex items-center justify-center">
-                    {variant && (
-                         <Suspense fallback={<Skeleton className="size-9 rounded-l-4xl"/>}>
-                              <SettingsButton variant={variant}/>
-                         </Suspense>
-                    )}
-                    <ModeToggle noVariant={!variant}/>
-                    <Suspense fallback={<Skeleton className="w-15 h-9 rounded-r-4xl"/>}>
+                    <Suspense fallback={(
+                         <>
+                         {variant && <Skeleton className="size-9 rounded-l-4xl"/>}
+                         <Skeleton className={cn("size-9", !variant && "rounded-l-4xl")}/>
+                         <Skeleton className="w-15 h-9 rounded-r-4xl"/>
+                         </>
+                    )}>
+                         <SettingsButton variant={variant}/>
+                         <ModeToggle noVariant={!variant}/>
                          <LanguageSwitcher/>
                     </Suspense>
                </div>

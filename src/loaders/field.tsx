@@ -1,5 +1,6 @@
-import { Field } from "@/components/ui/field"
+import { Field, FieldContent, FieldGroup } from "@/components/ui/field"
 import { Skeleton } from "@/components/ui/skeleton"
+import { PRESETS } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 
 interface FormFieldLoaderProps{
@@ -11,7 +12,7 @@ export function FormFieldLoader({type="input", includeDescription=false, classNa
      if(type==="switch") return (
           <Field orientation="horizontal" className={cn("justify-between",className)}>
                <Skeleton className="h-5 w-full max-w-32"/>
-               <Skeleton className="h-[18px] w-8 rounded-full"/>
+               <Skeleton className="h-4.5 w-8 rounded-full"/>
           </Field>
      )
      return (
@@ -32,14 +33,26 @@ export function PomodoroPresetsLoader(){
           <Field>
                <Skeleton className="h-5 w-full max-w-24"/>
                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                    <Skeleton className="h-[69px] w-full"/>
-                    <Skeleton className="h-[69px] w-full"/>
-                    <Skeleton className="h-[69px] w-full"/>
-                    <Skeleton className="h-[69px] w-full"/>
-                    <Skeleton className="h-[69px] w-full"/>
-                    <Skeleton className="h-[69px] w-full"/>
+                    <Skeleton className="h-17.25 w-full"/>
+                    <Skeleton className="h-17.25 w-full"/>
+                    <Skeleton className="h-17.25 w-full"/>
+                    <Skeleton className="h-17.25 w-full"/>
+                    <Skeleton className="h-17.25 w-full"/>
+                    <Skeleton className="h-17.25 w-full"/>
                </div>
           </Field>
+     )
+}
+export function PomodoroCustomInputLoader(){
+     return (
+          <FieldGroup className="w-full gap-4">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <FormFieldLoader/>
+                    <FormFieldLoader/>
+                    <FormFieldLoader/>
+                    <FormFieldLoader/>
+               </div>
+          </FieldGroup>
      )
 }
 export function ExercisePresetsLoader(){
@@ -53,5 +66,29 @@ export function ExercisePresetsLoader(){
                     <Skeleton className="w-full h-11"/>
                </div>
           </Field>
+     )
+}
+export function ExerciseSecondsInputLoader(){
+     return (
+          <>
+          <Field orientation="responsive">
+               <FieldContent className="flex-5">
+                    <Skeleton className="h-5 w-full max-w-32"/>
+                    <div className="space-y-1">
+                         <Skeleton className="h-5 w-full max-w-16"/>
+                         <Skeleton className="h-5 w-full max-w-24"/>
+                    </div>
+               </FieldContent>
+               <FormFieldLoader className="flex-1"/>
+          </Field>
+          <Field>
+               <Skeleton className="h-5 w-full max-w-24"/>
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+                    {PRESETS.map(({id})=>(
+                         <Skeleton className="h-9 flex-1" key={id}/>
+                    ))}
+               </div>
+          </Field>
+          </>
      )
 }
