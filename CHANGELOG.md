@@ -4,7 +4,7 @@ All notable changes of Calm Mood Desktop will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
-## [0.4.2] - Unreleased
+## [0.4.2] - 2026-07-26
 ### Improved
 - **Language Icons** - Added fallback language icon when the app is offline
 ### New Skeleton Loaders
@@ -17,6 +17,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Other parts
 ### Fixed
 - An Input validation bug on Pomodoro when typing seconds manually
+
+[0.4.2]: https://github.com/ArsenGabrielyan/calm-mood-desktop/releases/tag/v0.4.2
+
+---
 
 ## [0.4.1] - 2026-06-21
 ### Added

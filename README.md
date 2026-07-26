@@ -81,11 +81,6 @@ reconnecting with nature in a new way. Visit the [Website][website-url] to try i
 - [![Rust][rust-shield]][rust-url]
 - [![React Router][react-router-shield]][react-router-url]
 
-### Planned improvements
-- [X] Fallback language icon
-- [X] Refactor, Optimize, and Code-splitting if needed
-  - [X] Lazy Loading some internal components like a Breathing exercise circle or a Pomodoro timer component
-
 ### Download
 You can find the latest stable version of Calm Mood Desktop right here
 
