@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ---
 ## [0.4.2] - Unreleased
 ### Improved
-- **Language Icons** - Added fallback language icon when it comes to no internet
+- **Language Icons** - Added fallback language icon when the app is offline
 ### New Skeleton Loaders
 - About Details
 - Custom Pomodoro Settings
@@ -15,6 +15,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Breathing Circle
 - Theme Toggler
 - Other parts
+### Fixed
+- An Input validation bug on Pomodoro when typing seconds manually
 
 ## [0.4.1] - 2026-06-21
 ### Added

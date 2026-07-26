@@ -27,7 +27,7 @@ export default function PomodoroCustomInput({form}: PomodoroCustomInputProps){
                                         type="number"
                                         aria-invalid={fieldState.invalid}
                                         onChange={(e) => {
-                                             field.onChange(e.target.value)
+                                             field.onChange(e.target.valueAsNumber)
                                              setSelectedPreset(null)
                                         }}
                                    />
@@ -49,7 +49,7 @@ export default function PomodoroCustomInput({form}: PomodoroCustomInputProps){
                                         type="number"
                                         aria-invalid={fieldState.invalid}
                                         onChange={(e) => {
-                                             field.onChange(e.target.value)
+                                             field.onChange(e.target.valueAsNumber)
                                              setSelectedPreset(null)
                                         }}
                                    />
@@ -71,7 +71,7 @@ export default function PomodoroCustomInput({form}: PomodoroCustomInputProps){
                                         type="number"
                                         aria-invalid={fieldState.invalid}
                                         onChange={(e) => {
-                                             field.onChange(e.target.value)
+                                             field.onChange(e.target.valueAsNumber)
                                              setSelectedPreset(null)
                                         }}
                                    />
@@ -93,7 +93,7 @@ export default function PomodoroCustomInput({form}: PomodoroCustomInputProps){
                                         type="number"
                                         aria-invalid={fieldState.invalid}
                                         onChange={(e) => {
-                                             field.onChange(e.target.value)
+                                             field.onChange(e.target.valueAsNumber)
                                              setSelectedPreset(null)
                                         }}
                                    />
